@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="import_product_variant_view" model="ir.ui.view">
+		<field name="name">import.product.variant.view</field>
+		<field name="model">import.product.variant</field>
+		<field name="arch" type="xml">
+			<form>
+				<group>
+					<field name="import_file"/>
+				</group>
+				<footer>
+					<button name="import_product_variants" type="object" string="Import Product Variants" class="oe_highlight"/>
+					ou
+					<button special="cancel" string="Cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="import_product_variant_action">
+		<field name="name">Import Product Variants</field>
+		<field name="res_model">import.product.variant</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+	<menuitem id="import_product_variant_menu"
+			  name="Import Product Variants"
+			  parent="stock.menu_stock_inventory_control"
+			  action="import_product_variant_action"/>
+
+</odoo>

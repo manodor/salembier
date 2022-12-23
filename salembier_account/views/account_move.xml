@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_move_form_custom_inherit" model="ir.ui.view">
+            <field name="name">account.move.custom.inherit.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_draft']" position="attributes">
+                    <attribute name="groups">salembier_account.group_cancel_account</attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_reference']"
+                       position="after">
+                    <field name="sale_order_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_uom_id']" position="after">
+                    <field name="account_serial_number"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='product_uom_id']" position="after">
+                    <field name="account_serial_number" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

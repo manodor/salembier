@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_intelligence_view_tree" model="ir.ui.view">
+            <field name="name">purchase.intelligence.view.tree</field>
+            <field name="model">purchase.intelligence</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="ref"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="purchase_qty" force_save="1"/>
+                    <field name="qty_packaging" readonly="1"/>
+                    <field name="number_of_coli" readonly="1"/>
+                    <field name="forecasted_qty"/>
+                    <field name="min_qty" readonly="1"/>
+                    <field name="max_qty" readonly="1"/>
+                    <field name="vendor_id" readonly="1"/>
+                    <field name="onhand_qty"/>
+                    <field name="incoming_qty"/>
+                    <field name="outgoing_qty"/>
+                    <field name="static"/>
+                    <field name="product_topology" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="purchase_intelligence_view_search" model="ir.ui.view">
+            <field name="name">purchase.intelligence.view.tree</field>
+            <field name="model">purchase.intelligence</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="vendor_id"/>
+                    <field name="product_topology"/>
+                    <filter name="purchase_qty" domain="[('purchase_qty','>','0')]"
+                            string="Qté d'achat > 0" />
+                    <separator/>
+                    <filter name="conso" domain="[('product_topology','=','conso')]"
+                            string="CONSO" />
+                    <filter name="gm" domain="[('product_topology','=','gm')]"
+                            string="GM" />
+                    <filter name="sav" domain="[('product_topology','=','sav')]"
+                            string="SAV" />
+                    <separator/>
+                    <group string="Group by">
+                        <filter name="vendor" context="{'group_by': 'vendor_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_purchase_intelligence" model="ir.actions.server">
+            <field name="name">Purchase Intelligence</field>
+            <field name="model_id" ref="ksc_purchase_intelligence.model_purchase_intelligence"/>
+            <field name="state">code</field>
+            <field name="code">action = model.action_purchase_intelligence()</field>
+        </record>
+
+        <menuitem id="menu_purchase_intelligence" action="action_purchase_intelligence"
+                  name="Purchase Intelligence" parent="purchase.menu_purchase_root"/>
+
+        <record id="action_purchase_order_create" model="ir.actions.server">
+            <field name="name">Create Purchase Order</field>
+            <field name="model_id" ref="ksc_purchase_intelligence.model_purchase_intelligence"/>
+            <field name="binding_model_id" ref="ksc_purchase_intelligence.model_purchase_intelligence"/>
+            <field name="state">code</field>
+            <field name="code">action = records.create_purchase_order()</field>
+        </record>
+
+        <record id="action_add_new_line" model="ir.actions.server">
+            <field name="name">Add New Intelligence Lines</field>
+            <field name="model_id" ref="ksc_purchase_intelligence.model_purchase_intelligence"/>
+            <field name="binding_model_id" ref="ksc_purchase_intelligence.model_purchase_intelligence"/>
+            <field name="state">code</field>
+            <field name="code">action = records.add_new_lines()</field>
+        </record>
+    </data>
+</odoo>

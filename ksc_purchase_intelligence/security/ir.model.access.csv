@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_intelligence,access.purchase.intelligence,model_purchase_intelligence,,1,1,1,1
+access_confirm_box,access.confirm.box,model_confirm_box,,1,1,1,1
+access_add_intelligence_line,access.add.intelligence.line,model_add_intelligence_line,,1,1,1,1

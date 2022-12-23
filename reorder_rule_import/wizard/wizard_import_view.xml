@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_wizard_import_form" model="ir.ui.view">
+            <field name="name">wizard.import.form</field>
+            <field name="model">wizard.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Import Reordering Rule">
+                    <group>
+                        <field name="import_option" widget="radio"/>
+                        <field name="file" select="1"/>
+                    </group>
+                    
+                    
+                    <group>
+                      <group string="Download Sample XLS and CSV Files">
+                          <field name="down_samp_file" widget="checkbox" />
+                          <field name="sample_option" widget="radio" attrs="{'invisible': [('down_samp_file', '=', False)]}"/>
+                          <button name="download_auto" string="Download Sample File" type="object" class="oe_highlight" attrs="{'invisible': [('down_samp_file', '=', False)]}"/>
+                      </group>
+                    </group>
+                    
+                    <footer>
+                        <button string="Import or Update" type="object" name="import_button" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="reorder_rule_import_action" model="ir.actions.act_window">
+            <field name="name">Import Product Reorder Rules</field>
+            <field name="res_model">wizard.import</field>
+            <field name="view_id" ref="view_wizard_import_form"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="reorder_rule_import_action"
+        id="reordering_rule_import_menu"
+        parent="stock.menu_stock_inventory_control"/>
+
+    </data>
+</odoo>
+

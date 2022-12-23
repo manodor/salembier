@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_report_product_image_inherit" inherit_id="sale.report_saleorder_document">
+
+        <xpath expr="//th[@name='th_description']" position="before">
+            <th name="th_reference" class="text-center">Reference</th>
+        </xpath>
+
+        <xpath expr="//td[@name='td_name']" position="before">
+            <td name="td_reference">
+                <span t-field="line.product_id.default_code"/>
+                <t t-if="doc.show_image_in_report != False">
+                    <div style="max-width: 250px;max-height: 250px">
+                    <img t-if="line.product_image" t-att-src="'data:image/png;base64,%s' % to_text(line.product_image)"
+                         style="max-width: 250px; max-height: 250px" />
+                    </div>
+                </t>
+            </td>
+
+        </xpath>
+
+    </template>
+</odoo>

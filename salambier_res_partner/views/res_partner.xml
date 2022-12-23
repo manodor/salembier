@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_partner_changing_form">
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="name">res partner changing</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <div class="o_row">
+                        <field name="enseigne" attrs="{'invisible': [('customer_rank', '=', 0)]}"/>
+                        <br/>
+                    </div>
+                </field>
+                <field name="category_id" position="after">
+                    <field name="supplier_rank" invisible="1"/>
+                    <field name="customer_rank" invisible="1"/>
+                    <field name="phone_exist" invisible="1"/>
+                </field>
+                <xpath expr="//group[@name='sale']" position="inside">
+                    <field name="podo"/>
+                </xpath>
+                <xpath expr="//group[@name='misc']" position="inside">
+                    <field name="soumis_tva" invisible="1"/>
+                </xpath>
+                <xpath expr="//group[@name='purchase']" position="inside">
+                    <field name="sous_escompte" attrs="{'invisible': [('supplier_rank', '=', 0)]}"/>
+                    <field name="taux_escompte" attrs="{'invisible': [('supplier_rank', '=', 0)]}"/>
+                    <field name="mt_mini_cde" attrs="{'invisible': [('supplier_rank', '=', 0)]}"/>
+                    <field name="mt_franco" attrs="{'invisible': [('supplier_rank', '=', 0)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='child_ids']/form//field[@name='name']" position="before">
+                    <field name="enseigne" placeholder="Observation..." string="Observation"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="leads" attrs="{'invisible': [('customer_rank', '&lt;', 1)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='phone']" position="attributes">
+                    <attribute name="attrs">{'required': [('phone_exist', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='mobile']" position="attributes">
+                    <attribute name="attrs">{'required': [('phone_exist', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='email']" position="attributes">
+                    <attribute name="attrs">{'required': ['|',('customer_rank', '&gt;=', 1),('supplier_rank','&gt;=',1)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street']" position="attributes">
+                    <attribute name="attrs">{'required': ['|','&amp;',('customer_rank', '&gt;=', 1),('leads', '=', False),('supplier_rank','&gt;=',1)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='zip']" position="attributes">
+                    <attribute name="attrs">{'required': [('customer_rank', '&gt;=', 1),('leads', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="attrs">{'required': [('customer_rank', '&gt;=', 1),('leads', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='property_account_position_id']" position="attributes">
+                    <attribute name="attrs">{'required': [('customer_rank', '&gt;=', 1),('leads', '=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='property_supplier_payment_term_id']" position="attributes">
+                    <attribute name="attrs">{'required': [('supplier_rank', '&gt;=', 1)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='property_account_receivable_id']" position="attributes">
+                    <attribute name="groups">account.group_account_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='property_account_payable_id']" position="attributes">
+                    <attribute name="groups">account.group_account_manager</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sale_view_form_custom_inherit_partner" model="ir.ui.view">
+            <field name="name">sale.order.custom.inherit.form.partner</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_shipping_id" position="attributes">
+                    <attribute name="context">{'default_type': 'delivery', 'adress': True}</attribute>
+                </field>
+                <field name="partner_id" position="attributes">
+                    <attribute name="context">{'show_mobile': True,'show_phone': True, 'show_email': True, 'res_partner_search_mode': 'customer',
+                                               'show_address': 1, 'show_vat': True}</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

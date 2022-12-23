@@ -1,0 +1,266 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_discount_total
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-14 09:33+0000\n"
+"PO-Revision-Date: 2022-06-14 11:35+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.discount_sale_view_form
+msgid "(update)"
+msgstr ""
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.res_config_settings_view_form_sale_discount
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__account_move__discount_type__amount
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__discount_type__amount
+msgid "Amount"
+msgstr ""
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.discount_sale_view_form
+msgid "Approve"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__state__cancel
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__res_company__so_double_validation__one_step
+msgid "Confirm sale orders in one step"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_bank_statement_line__amount_discount
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_invoice_report__discount
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_move__amount_discount
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_payment__amount_discount
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__amount_discount
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_report__discount
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.report_invoice_customized
+msgid "Discount"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_move_line__discount
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order_line__discount
+msgid "Discount (%)"
+msgstr "Remise (%)"
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_bank_statement_line__discount_rate
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_move__discount_rate
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_payment__discount_rate
+msgid "Discount Amount"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__discount_rate
+msgid "Discount Rate"
+msgstr ""
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.discount_account_invoice_view_form
+msgid "Discount Rate :"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_bank_statement_line__discount_type
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_move__discount_type
+#: model:ir.model.fields,field_description:sale_discount_total.field_account_payment__discount_type
+msgid "Discount Type"
+msgstr ""
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.discount_account_invoice_view_form
+msgid "Discount Type :"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_res_config_settings__so_double_validation_limit
+msgid "Discount limit requires approval in %"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__discount_type
+msgid "Discount type"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__res_company__so_double_validation__two_step
+msgid "Get 2 levels of approvals to confirm a sale order"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr "Statistiques des factures"
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_res_company__so_double_validation
+msgid "Levels of Approvals"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_res_config_settings__so_double_validation
+msgid "Levels of Approvals *"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__state__done
+msgid "Locked"
+msgstr "Bloqué"
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.res_config_settings_view_form_sale_discount
+msgid "Managers must approve discount"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,help:sale_discount_total.field_res_company__so_double_validation_limit
+#: model:ir.model.fields,help:sale_discount_total.field_res_config_settings__so_double_validation_limit
+msgid "Minimum discount percentage for which a double validation is required"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__account_move__discount_type__percent
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__discount_type__percent
+msgid "Percentage"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_res_company__so_double_validation_limit
+msgid "Percentage of Discount that requires double validation'"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,help:sale_discount_total.field_res_company__so_double_validation
+#: model:ir.model.fields,help:sale_discount_total.field_res_config_settings__so_double_validation
+msgid "Provide a double validation mechanism for sales discount"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__state__draft
+msgid "Quotation"
+msgstr "Devis"
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__state__sent
+msgid "Quotation Sent"
+msgstr "Devis envoyé"
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_res_config_settings__so_order_approval
+msgid "Sale Discount Approval"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Rapport d'analyse des ventes"
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_sale_order
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__state__sale
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: sale_discount_total
+#: model:ir.model,name:sale_discount_total.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__state
+msgid "Status"
+msgstr "État"
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__amount_tax
+msgid "Taxes"
+msgstr ""
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.discount_sale_view_form
+msgid "Terms and conditions..."
+msgstr "Termes et conditions..."
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__amount_total
+msgid "Total"
+msgstr "Totale"
+
+#. module: sale_discount_total
+#: model_terms:ir.ui.view,arch_db:sale_discount_total.report_saleorder_customized
+msgid "Total Discount"
+msgstr "Remise totale"
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "Montant HT"
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__state__waiting
+msgid "Waiting Approval"
+msgstr ""
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__discount_mode
+msgid "Discount mode"
+msgstr "Mode de remise"
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__discount_mode__disc_line
+msgid "Discount per line"
+msgstr "Remise par ligne de vente"
+
+#. module: sale_discount_total
+#: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__discount_mode__disc_sale
+msgid "Discount per sale"
+msgstr "Remise par vente"
+
+#. module: sale_discount_total
+#: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__value_discount_init
+msgid "value discount init"
+msgstr "Valeur de remise initiale"

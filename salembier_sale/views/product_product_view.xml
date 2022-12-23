@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="product_normal_form_view_inherit_view" model="ir.ui.view">
+        <field name="name">product.normal.form.view.inherit.view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="categ_family_gruping"/>
+            </xpath>
+            <xpath expr="//group[@name='group_standard_price']" position="after">
+                <group>
+                    <field name="margin_fixed"/>
+                    <field name="product_obsolete"/>
+                    <field name="recall"/>
+                    <field name="static"/>
+                </group>
+                <group>
+                    <div name="marge_product_percentage">
+                        <label for="marge_product"/>
+                        <field name="marge_product"/> €
+                        <br/>
+                        <label for="marge_product_percentage"/>
+                        <field name="marge_product_percentage"/> (%%)
+                        <br/>
+                        <label for="marge_product_coef"/>
+                        <field name="marge_product_coef"/> (%%)
+                    </div>
+                    <field name="impact_of_additional_cost"/>
+                    <field name="transportation"/>
+                    <field name="real_cost"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='inventory']//group[@name='group_lots_and_weight']" position="after">
+                <group name="Quantity" string="Quantity">
+                    <field name="incoming_qty"/>
+                    <field name="outgoing_qty"/>
+                </group>
+            </xpath>
+            <xpath expr="//group[@name='description']" position="before">
+                <group>
+                    <field name="product_name" string="Libellé"/>
+                </group>
+                <group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_tree_view_inherit" model="ir.ui.view">
+        <field name="name">product.product.tree.view.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="uom_id" position="after">
+                <field name="incoming_qty"/>
+                <field name="outgoing_qty"/>
+            </field>
+            <field name="name" position="replace">
+                <field name="product_name"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_product_variant_easy_edit_view_inherit" model="ir.ui.view">
+        <field name="name">product.product.search.view.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="product_name" string="Libellé"/>
+            </xpath>
+            <xpath expr="//group[@name='weight']" position="after">
+                <group name="salembier_fields" string="Autre">
+                    <field name="product_name" string="Libellé"/>
+                    <field name="margin_fixed"/>
+                    <field name="product_obsolete"/>
+                    <field name="recall"/>
+                    <field name="static"/>
+                </group>
+                <group name="marge" string="Marge">
+                    <div name="marge_product_percentage">
+                        <label for="marge_product"/>
+                        <field name="marge_product"/> €
+                        <br/>
+                        <label for="marge_product_percentage"/>
+                        <field name="marge_product_percentage"/> (%%)
+                        <br/>
+                        <label for="marge_product_coef"/>
+                        <field name="marge_product_coef"/> (%%)
+                    </div>
+                    <field name="impact_of_additional_cost"/>
+                    <field name="transportation"/>
+                    <field name="real_cost"/>
+                </group>
+                <group name="Quantity" string="Quantity">
+                    <field name="incoming_qty"/>
+                    <field name="outgoing_qty"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

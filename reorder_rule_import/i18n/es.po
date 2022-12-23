@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* reorder_rule_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-27 07:51+0000\n"
+"PO-Revision-Date: 2021-07-27 07:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: reorder_rule_import
+#: code:addons/reorder_rule_import/wizard/wizard_import.py:0
+#, python-format
+msgid "\"%s\" There is no product code in system."
+msgstr "\"%s\" No hay código de producto en el sistema."
+
+#. module: reorder_rule_import
+#: model:ir.model.fields.selection,name:reorder_rule_import.selection__wizard_import__import_option__csv
+msgid "CSV File"
+msgstr "Archivo CSV"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__id
+msgid "ID"
+msgstr "IDENTIFICACIÓN"
+
+#. module: reorder_rule_import
+#: model:ir.actions.act_window,name:reorder_rule_import.reorder_rule_import_action
+#: model:ir.ui.menu,name:reorder_rule_import.reordering_rule_import_menu
+msgid "Import Product Reorder Rules"
+msgstr "Importar reglas de reorden de productos"
+
+#. module: reorder_rule_import
+#: model_terms:ir.ui.view,arch_db:reorder_rule_import.view_wizard_import_form
+msgid "Import Reordering Rule"
+msgstr "Importar regla de reordenación"
+
+#. module: reorder_rule_import
+#: model_terms:ir.ui.view,arch_db:reorder_rule_import.view_wizard_import_form
+msgid "Import or Update"
+msgstr "Importar o actualizar"
+
+#. module: reorder_rule_import
+#: code:addons/reorder_rule_import/wizard/wizard_import.py:0
+#, python-format
+msgid "Invalid file!"
+msgstr "¡Archivo inválido!"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__import_option
+msgid "Select"
+msgstr "Seleccione"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,field_description:reorder_rule_import.field_wizard_import__file
+msgid "Select File"
+msgstr "Seleccione Archivo"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields.selection,name:reorder_rule_import.selection__wizard_import__import_option__xls
+msgid "XLS File"
+msgstr "Archivo XLS"
+
+#. module: reorder_rule_import
+#: model:ir.model.fields,help:reorder_rule_import.field_wizard_import__file
+msgid "select file"
+msgstr "seleccione Archivo"
+
+#. module: reorder_rule_import
+#: model:ir.model,name:reorder_rule_import.model_wizard_import
+msgid "wizard.import"
+msgstr ""

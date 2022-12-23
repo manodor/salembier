@@ -1,0 +1,893 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* salembier_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-21 15:32+0000\n"
+"PO-Revision-Date: 2022-11-21 16:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "%(percentage)s %% discount and %(price)s surcharge"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "%s %% discount"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_template_only_form_view_inherit_salembier
+msgid ""
+"(%)\n"
+"                         <br/>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_normal_form_view_inherit_view
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_product_variant_easy_edit_view_inherit
+msgid ""
+"(%)\n"
+"                        <br/>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">CONDITIONS DE PAIEMENT</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">CONTESTATION</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">DÉLAIS</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">GARANTIE</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">LIVRAISON - TRANSPORT</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">PRIX</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">PRODUITS</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">RETOUR</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">RÉCEPTION</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">RÉSERVEDE PROPRIÉTÉ</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<b style=\"font-size:10px\">SERVICE APRÈS VENTE</b>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<span>Amount HT</span>"
+msgstr "<span>Montant HT</span>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<span>Amount TTC</span>"
+msgstr "<span>Montant TTC</span>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid ""
+"<span>Done in</span>\n"
+"                                <br/><span>The</span>"
+msgstr ""
+"<span>Fait à</span>\n"
+"                            <br/><span>Le</span>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid ""
+"<span>For acceptance of this quote\n"
+"                                    return it to us dated and signed\n"
+"                                    with the mention 'Good for agreement'</span>"
+msgstr ""
+"<span>Pour acceptation de ce devis\n"
+"                            nous le retourner daté et signé\n"
+"                            avec la mention 'Bon pour accord'</span>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.external_layout_standard_salembier
+msgid "<span>For the general conditions of sale, see attached</span>"
+msgstr "<span>Pour les conditions générales de vente, voir ci-joint</span>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<span>REM.(%)</span>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<span>Signature + mention</span>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong class=\"mr16\">Total HT before discount</strong>"
+msgstr "<strong class=\"mr16\">Total HT avant remise</strong>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong class=\"mr16\">Total TTC before discount</strong>"
+msgstr "<strong class=\"mr16\">Total TTC avant remise</strong>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong class=\"mr16\">Total discounts</strong>"
+msgstr "<strong class=\"mr16\">Total des remises</strong>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid "<strong style=\"font-size:10px;\">CONDITIONS GÉNÉRALES DE VENTE</strong>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong>Adresse de Facturation:</strong>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid ""
+"<strong>Adresse de Livraison:</strong>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong>Customer code:</strong>"
+msgstr "<strong>Code client:</strong>"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.external_layout_standard_salembier
+msgid "<strong>Page <span class=\"page\"/></strong>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong>Total net HT</strong>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong>Total net TTC en €</strong>"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "<strong>Your representative:</strong>"
+msgstr "<strong>Votre représentant:</strong>"
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_pricelist_item__applied_on__3_global
+#, python-format
+msgid "All Products"
+msgstr "Tous les produits"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_sale_order_line__amount_ttc
+msgid "Amount TTC"
+msgstr "Montant TTC"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_pricelist_item__applied_on
+msgid "Apply On"
+msgstr "Appliqué sur"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_product_variant_easy_edit_view_inherit
+msgid "Autre"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_template__product_topology__conso
+msgid "CONSO"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Category: %s"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Ce catalogue n° 30 annule et remplace les éditions\n"
+"                            précédentes. Toute commande implique de la part du client l'acceptation, sans "
+"réserve,\n"
+"                            des conditions généralesde vente ci-contre, qui l'emportent\n"
+"                            sur toutes autres conditions du client dont celles pouvant se trouver imprimées sur "
+"ses\n"
+"                            bons de commandes ou autres documents commerciaux."
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_category__category_code
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__code
+msgid "Code"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__marge_product_coef
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__marge_product_coef
+msgid "Coef de marge"
+msgstr "Coefficient de marge"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__product_comment
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__product_comment
+msgid "Comment"
+msgstr "Commentaire"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_supplierinfo__current_vendor
+msgid "Current Vendor"
+msgstr "Fournisseur actuel"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.move_line_form_view_inherit_partner
+msgid "Customer"
+msgstr "Client"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "DESCRIPTION"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.sale_view_form_custom_inherit
+msgid "Date de validité"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"En cas de retour dans nos locaux, les frais de port\n"
+"                            (aller et retour) des marchandises et, le cas échéant, du matériel de prêtsont à la\n"
+"                            charge du client. Dans tous les cas, le client veillera à prendre les\n"
+"                            assurances nécessaires en fonction de la valeur du bien transporté. Le matériel de "
+"prêt\n"
+"                            gratuit ne sera mis à la disposition du client que dans la mesure où celui-ci en "
+"fait la\n"
+"                            demande, uniquement si\n"
+"                            le matériel à réparer a été acheté dans nos établissements et, suivant les\n"
+"                            disponibilités du matériel. Pour le matériel d'occasion, nous mettrons tout en "
+"ouvre\n"
+"                            pour trouver la pièce défectueuse mais\n"
+"                            aucun déplacement sur site ne sera fait. Toute réclamation quant à la qualité d'une\n"
+"                            réparation doit être faite dans un délai de trois jours suivants la réception du\n"
+"                            matériel. Concernant les autoclaves, il\n"
+"                            n'est pas prévu de système de prêt gratuit durant l'immobilisation de l'appareil."
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_template__product_topology__gm
+msgid "GM"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__categ_family_gruping
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__categ_family_gruping
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_pricelist_item__applied_on__4_grouping_family
+msgid "Grouping Family"
+msgstr "Famille de regroupement"
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Grouping family: %s"
+msgstr "Famille de regroupement %s"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__id
+msgid "ID"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__impact_of_additional_cost
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__impact_of_additional_cost
+msgid "Impact of Additional Cost"
+msgstr "Incidence frais complémentaire"
+
+#. module: salembier_sale
+#: model:ir.actions.server,name:salembier_sale.ir_cron_import_variant_ir_actions_server
+#: model:ir.cron,cron_name:salembier_sale.ir_cron_import_variant
+#: model:ir.cron,name:salembier_sale.ir_cron_import_variant
+msgid "Import variant"
+msgstr "Importation des variantes"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Les délais de livraison ne sont donnés qu'à titre\n"
+"                            indicatif. Les retards éventuels ne donnent pas au client le droit d'annuler la "
+"vente,\n"
+"                            de refuser la marchandise ou de réclamer un dédommagement\n"
+"                            quelconque. En tout état de cause, les délais convenus seront prorogés en cas de "
+"force\n"
+"                            majeure. Constituent notamment des cas de force majeure, l'arrêt total ou partiel "
+"de\n"
+"                            notre personnel ou de celui\n"
+"                            de l'un de nos fournisseurs ou transporteurs pour grève, incendie, inondation, "
+"accident\n"
+"                            de fabrication, manque de matières premières."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Les marchandises sont fournies au tarif en vigueur au\n"
+"                            jour de la commande, les prix figurant au catalogue ne sont donnés qu'à titre "
+"indicatif.\n"
+"                            Tarif TTC calculé au taux de TVA en vigueur, soit 20\n"
+"                            %. Dans le cas d'une modi fication de ce taux, les tarifs seraient revus en "
+"fonction. Il\n"
+"                            appartient, en conséquence, au client de vérifier qu'il dispose bien du tarif en "
+"vigueur\n"
+"                            au moment de sa\n"
+"                            commande. Aucune contestation sur le prix ne sera admise s'il n'a pas eu de demande\n"
+"                            préalable de facture pro-forma ou de devis chiffré et retourné signé par le client. "
+"Par\n"
+"                            ailleurs, toute offre de prix\n"
+"                            est valable uniquement 1 mois. Les prix de notre catalogue s'entendent TTC. Les "
+"prix\n"
+"                            quantitatifs sont donnés pour une unité. Pour toute commande dont le montant serait\n"
+"                            inférieur à 55 _ TTC\n"
+"                            (45,83 _ HT), seront comptés des frais de facturation et d'emballage qui s'élèvent à "
+"8 _\n"
+"                            TTC (6,67 _ HT), ainsi que les frais de port. Pour toute commande dont le montant "
+"est\n"
+"                            compris entre 55 _\n"
+"                            et 230 _ TTC, seuls les frais de port seront facturés au client. Pour toute "
+"commande\n"
+"                            (hors SAV) dont le montant excède 230 _ TTC et devant être livrée en France\n"
+"                            Métropolitaine (hors Corse), le\n"
+"                            client bénéficiera d'un Franco de Port et d'emballage (hors frais d'assurance et\n"
+"                            supplément pour transport express). Toute commande de matériel d'installation "
+"inférieure\n"
+"                            à 6 000 _ TTC sera expédiée\n"
+"                            gratuitement par transporteur ou installéepar un de nos techniciens, moyennant un\n"
+"                            supplément de 400 _ TTC (France métropolitaine)."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Les marchandises voyagent toujours aux risques et\n"
+"                            périls du client et ce, quelle que soit leur destination et quel que soit le mode "
+"de\n"
+"                            transport. Au cas où la livraison serait con ée à un transporteur,\n"
+"                            il appartient au client, en cas d'avarie ou de manquant, de faire toute "
+"constatation\n"
+"                            nécessaire sur les documents de transport et de con firmer ses réserves par LRAR "
+"auprès\n"
+"                            du transporteur dans les 3\n"
+"                            jours qui suivent la réception des marchandises. Tous accessoires (monte meuble.) et/"
+"ou\n"
+"                            manutentions supplémentaires nécessaires lors d'une livraison et qui seraient "
+"notamment\n"
+"                            dus au non-respect\n"
+"                            des normes d'accessibilité des locaux, sont à la charge du client et seront facturés "
+"en\n"
+"                            sus."
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__product_name
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_normal_form_view_inherit_view
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_product_variant_easy_edit_view_inherit
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_template_only_form_view_inherit_salembier
+msgid "Libellé"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.external_layout_standard_salembier
+msgid "Logo"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/sale.py:0
+#, python-format
+msgid "Make sure you have the quantities available in stock (obsolete product): %s"
+msgstr "Assurez-vous d'avoir les quantités disponibles en stock (produit obsolète) : %s"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__marge_product
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__marge_product
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_product_variant_easy_edit_view_inherit
+msgid "Marge"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__margin_fixed
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__margin_fixed
+msgid "Marge Théorique fixe"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__marge_product_percentage
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__marge_product_percentage
+msgid "Marge percentage"
+msgstr "Pourcentage de marge"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_grouping_family__name
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__product_name
+msgid "Name"
+msgstr "Nom"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Nos marchandises sont garanties, contre tout vice de\n"
+"                            fabrication ou de défaut de matière. La durée de garantie est celle indiquée sur "
+"notre\n"
+"                            catalogue, le point de départ dudit délai étant la date de\n"
+"                            facturation des marchandises. Notre matériel d'occasion est garanti 3 mois. La "
+"garantie\n"
+"                            est limitéeau remplacement ou à la réparation de la marchandise reconnue défectueuse "
+"à\n"
+"                            l'exception des\n"
+"                            pièces d'usure telles que les roulements et charbons pour les instruments rotatifs,\n"
+"                            l'éclairage (ampoules, néons), les batteries et piles, les flexibles, les fusibles "
+"ainsi\n"
+"                            les options personnalisées et les\n"
+"                            tapisseries du fauteuil. Ceci qu'en France métropolitaine. En aucune façon la "
+"présente\n"
+"                            garantie ne couvre les dommages directs ou indirects qui trouveraient leur origine "
+"dans\n"
+"                            l'utilisation des\n"
+"                            marchandises. La garantie n'est acquise qu'à la condition que le client nous ait "
+"informé\n"
+"                            des désordres dans les 72 heures de leurs apparitions et qu'il ne soit pas "
+"intervenu,\n"
+"                            lui-même ou par\n"
+"                            l'intermédiaire d'un tiers, sur les marchandises depuis leur mise à disposition. "
+"Sont\n"
+"                            exclues de la garantie les réparations qui résulteraient de l'usure normale des\n"
+"                            marchandises, de détérioration ou\n"
+"                            d'accident provenant de négligence, de défaut de surveillance ou d'entretien, de\n"
+"                            non-respect des règles d'utilisation préconisées par le fabricant tels que "
+"notamment,\n"
+"                            purge compresseur non faite,\n"
+"                            mauvaise lubrification ou stérilisation non conforme, non-respect du changement de "
+"la\n"
+"                            cartouche filtre à huile tous les 6 mois. Notre matériel d'occasion est garanti 3 "
+"mois\n"
+"                            pièces et main d'ouvre\n"
+"                            uniquement, les frais de transport sont exclus de cette garantie. La garantie "
+"s'effectue\n"
+"                            dans notre atelier pour l'ensemble des composants techniques amovibles "
+"transportables\n"
+"                            (type instrumentation,\n"
+"                            moteurs de domiciles, tiroirs techniques, compresseurs, autoclaves.), dans les\n"
+"                            conditions énumérées au chapitre Transport et, sur site dans les cas contraires. "
+"Ceci\n"
+"                            qu'en France métropolitaine."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Nous conservons l'entière et exclusive propriété des\n"
+"                            marchandises vendues jusqu'au paiement intégralde leur prix (loi 80.335 du "
+"12/05/1980),\n"
+"                            mais le client en assumera les risques dès leur livraison."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "P.U.HT"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "P.U.Net"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "P.U.TTC"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_sale_order_line__pu_net
+msgid "PU NET"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_sale_order_line__pu_ttc
+msgid "PU TTC"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_sale_order_line__pu_discount
+msgid "PU TTC Rem"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Please specify the Grouping Family for which this rule should be applied"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Please specify the category for which this rule should be applied"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Please specify the product for which this rule should be applied"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Please specify the product variant for which this rule should be applied"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_product_pricelist
+msgid "Pricelist"
+msgstr "Liste de prix"
+
+#. module: salembier_sale
+#: model:ir.model.fields,help:salembier_sale.field_product_pricelist_item__applied_on
+msgid "Pricelist Item applicable on selected option"
+msgstr "Liste de prix d'article applicable sur les options sélectionnées"
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Règle des listes des prix"
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_product_product
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_pricelist_item__applied_on__1_product
+msgid "Product"
+msgstr "Article"
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_product_category
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_pricelist_item__applied_on__2_product_category
+msgid "Product Category"
+msgstr "Catégorie d'article"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_grouping_family_form
+msgid "Product Family"
+msgstr "Famille de produits"
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_product_grouping_family
+#: model:ir.model.fields,field_description:salembier_sale.field_product_pricelist_item__grouping_family_id
+msgid "Product Grouping Family"
+msgstr "Famille de regroupement de produits"
+
+#. module: salembier_sale
+#: model:ir.ui.menu,name:salembier_sale.product_grouping_family_menu
+msgid "Product Grouping family code"
+msgstr "Code de famille de regroupement de produits"
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: salembier_sale
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_pricelist_item__applied_on__0_product_variant
+msgid "Product Variant"
+msgstr "Variante d'article"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_grouping_family_tree
+msgid "Product grouping Family code"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.actions.act_window,name:salembier_sale.product_grouping_family_action
+msgid "Product grouping family code"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.actions.act_window,help:salembier_sale.product_grouping_family_action
+msgid "Product grouping family code."
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__product_topology
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__product_topology
+msgid "Product topology"
+msgstr "Typologie d'article"
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Product: %s"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_purchase_order
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "Qté"
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_normal_form_view_inherit_view
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_product_variant_easy_edit_view_inherit
+msgid "Quantity"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__real_cost
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__real_cost
+msgid "Real Cost"
+msgstr "Coût de revient"
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__recall
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__recall
+msgid "Récylum"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields.selection,name:salembier_sale.selection__product_template__product_topology__sav
+msgid "SAV"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Commande"
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de Commande"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Sans préjudice des dispositions qui précèdent, le\n"
+"                            client devra nous aviser immédiatement par téléphone puis par LRAR dans les 48 "
+"heures\n"
+"                            suivant la réception des marchandises, de toutes anomalies.\n"
+"                            Passé ce délai, aucune réclamation ne sera prise en compte. Lors de la réception de "
+"sa\n"
+"                            commande, le client devra indiquer, le cas échéant, sur le récépissé de transport, "
+"tout\n"
+"                            dégât éventuel sur la\n"
+"                            marchandise reçue. A défaut, aucune prise en charge ne pourra être faite. En cas\n"
+"                            d'anomalie signalée dans le délai sus indiqué et reconnue, seule la réparation de "
+"la\n"
+"                            marchandise incriminée ou son\n"
+"                            remplacement, ou éventuellement un avoir correspondant au plus à la valeur de la\n"
+"                            marchandise, peut en résulter, sans autre indemnité de quelque nature que ce soit, "
+"le\n"
+"                            choix de la solution la plus\n"
+"                            appropriée nous étant réservé. Les meubles de rangement de la gamme AURORA et ELITE\n"
+"                            seront livrés conformément au plan signé par le client, aucune modification ne "
+"pourra\n"
+"                            alors être apportée."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Sauf disposition légale contraire, toute contestation,\n"
+"                            de quelque ordre qu'elle soit, sera de la compétence exclusive du Tribunal de "
+"Commerce\n"
+"                            de Lillequi se devra d'appliquer la loi française."
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__static
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__static
+msgid "Stats N-1"
+msgstr "Statistiques N-1"
+
+#. module: salembier_sale
+#: model:ir.model,name:salembier_sale.model_product_supplierinfo
+msgid "Supplier Pricelist"
+msgstr "Liste de prix du fournisseur"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Tous les articles présentés sont livrés sans accessoire\n"
+"                            sauf ceux spéci fiés dans le texte. Les photographies et caractéristiques techniques "
+"des\n"
+"                            produits (dont le nombre de tours des instruments\n"
+"                            rotatifs, les dimensions.) n'ont qu'une valeur indicative et ne sont pas "
+"contractuels.\n"
+"                            Nous nous réservons le droit d'apporter, à tout moment, et même pour les commandes "
+"en\n"
+"                            cours, toutes modifications jugées utiles aux produits sans toutefois que les "
+"caractéristiques\n"
+"                            essentielles puissent s'en trouver affectées. Il appartient, en conséquence, au "
+"client\n"
+"                            de s'assurer, lors de sa commande, que\n"
+"                            les caractéristiques (et notamment les dimensions), si elles sont pour lui "
+"essentielles,\n"
+"                            n'ont pas évoluées."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Tous les dispositifs médicaux que nous commercialisons sont\n"
+"                            conformes à la norme CE qui\n"
+"                            leur est attachée. Nous respectons l'obligation de la traçabilité obligatoire pour\n"
+"                            certains produits.<br/>\n"
+"                            Conformément à l'article 18 du décret n° 2005-829 relatif à la composition des\n"
+"                            équipements électriques et électroniques et à l'élimination des déchets issus de "
+"ces\n"
+"                            équipements, l'organisation et le\n"
+"                            financement de l'enlèvement et du traitement des déchets d'EEE objet du présent "
+"contrat\n"
+"                            de vente sont transférés à l'Acheteur qui les accepte. L'Acheteur s'assure de la\n"
+"                            collecte de l'équipement objet\n"
+"                            de la vente, de son traitement et de sa valorisation, conformément à l'article 21 "
+"dudit\n"
+"                            décret. Le non- respect par l'Acheteur des obligations ainsi mises à sa charge peut\n"
+"                            entraîner l'application des\n"
+"                            sanctions pénales prévues par à l'article 25 du décret n° 2005-829 à son encontre."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Tout retour de marchandises doit, au préalable, faire\n"
+"                            l'objet de notre accord écrit. En cas de retour accepté, celui-ci devra se faire en\n"
+"                            franco de port, les frais inhérents à ces retours étant entièrement\n"
+"                            à la charge du client jusqu'à ce que notre responsabilité soit reconnue. En tout "
+"état de\n"
+"                            cause, le retour des marchandises doit se faire dans leur emballage d'origine."
+msgstr ""
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.general_conditions_sale
+msgid ""
+"Toutes nos factures sont payables au comptant à\n"
+"                            réception et sans escompte. Par ailleurs, pour toute commande de matériel\n"
+"                            d'installation, un acompte représentant approximativement 15 % du\n"
+"                            montant total de la commande pourra être demandé dès la commande. Toute somme non "
+"payée\n"
+"                            à l'échéance pourrait entraîner : - le paiement d'intérêts de retard au taux égal à "
+"1\n"
+"                            fois et demie le\n"
+"                            taux d'intérêt légalet une indemnité forfaitaire de 40 _ conformément à la\n"
+"                            réglementation en vigueur. Ces intérêts courront jusqu'au paiement effectif "
+"encaissé. -\n"
+"                            l'exigibilitéimmédiate de la totalité de la\n"
+"                            dette en cas de paiement échelonné - l'exigibilité immédiate de toutes les factures "
+"non\n"
+"                            encore échues - la suspension ou l'annulation, à notre choix, de toute commande en\n"
+"                            cours. En cas de\n"
+"                            non-respect des délais de paiement, lesfutures commandes seraient dues à la commande."
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__transportation
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__transportation
+msgid "Transportation"
+msgstr "% Transport"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.purchase_order_form_view_inherit_price
+msgid "Update Price"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/product_pricelist.py:0
+#, python-format
+msgid "Variant: %s"
+msgstr ""
+
+#. module: salembier_sale
+#: code:addons/salembier_sale/models/sale.py:0
+#, python-format
+msgid "You can not confirm this order because the customer has leads"
+msgstr "Confirmation impossible! Le contact est de type prospect."
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.report_saleorder_customized_prices
+msgid "on"
+msgstr ""
+
+#. module: salembier_sale
+#: model:ir.model.fields,field_description:salembier_sale.field_product_product__product_obsolete
+#: model:ir.model.fields,field_description:salembier_sale.field_product_template__product_obsolete
+msgid "produit obsolète"
+msgstr "Produit Obsolète"
+
+#. module: salembier_sale
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_normal_form_view_inherit_view
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_product_variant_easy_edit_view_inherit
+#: model_terms:ir.ui.view,arch_db:salembier_sale.product_template_only_form_view_inherit_salembier
+msgid ""
+"€\n"
+"                        <br/>"
+msgstr ""

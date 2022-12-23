@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_grouping_family_form" model="ir.ui.view">
+            <field name="name">product grouping family form</field>
+            <field name="model">product.grouping.family</field>
+            <field name="arch" type="xml">
+                <form string="Product Family">
+                    <sheet>
+                        <group string="">
+                            <group>
+                                <field name="name" required="1"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_grouping_family_tree" model="ir.ui.view">
+            <field name="name">product.grouping.family.tree</field>
+            <field name="model">product.grouping.family</field>
+            <field name="arch" type="xml">
+                <tree string="Product grouping Family code">
+                    <field name="name"  required="1"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_grouping_family_action" model="ir.actions.act_window">
+            <field name="name">Product grouping family code</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.grouping.family</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Product grouping family code.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="product_grouping_family_menu"
+                  name="Product Grouping family code"
+                  parent="stock.menu_product_in_config_stock"
+                  action="product_grouping_family_action"/>
+
+    </data>
+</odoo>

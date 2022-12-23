@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- inherit the account invoice report  -->
+<odoo>
+    <data>
+        <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+            <xpath expr="//t[@t-set='address']" position="replace">
+                <t t-set="address">
+                    <strong>Adresse de Facturation:</strong>
+                    <div t-field="o.partner_id"
+                         t-options='{"widget": "contact", "fields": [ "name", "enseigne", "address","phone", "mobile" ,"email"], "no_marker": True, "phone_icons": True}'/>
+                    <p t-if="o.partner_id.vat"><t t-esc="o.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>
+                        : <span t-field="o.partner_id.vat"/></p>
+                </t>
+                <t t-set="information_block">
+                    <div groups="sale.group_delivery_invoice_address" name="shipping_address_block">
+                        <strong>Adresse de Livraison:</strong>
+                        <div t-field="o.partner_shipping_id"
+                             t-options='{"widget": "contact", "fields": ["address","enseigne", "phone", "mobile" ,"email"], "no_marker": True, "phone_icons": True}'/>
+                    </div>
+                </t>
+            </xpath>
+            <xpath expr="//th[@name='th_description']" position="replace">
+                <th name="th_description" class="text-left"><span>Article</span></th>
+            </xpath>
+            <!-- replace the td name account_invoice_line_name -->
+            <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+                <td name="account_invoice_line_name">
+                    <span t-field="line.product_id"/>
+                </td>
+            </xpath>
+            <!-- xpath after id row -->
+            <xpath expr="//div[@id='total']" position="after">
+                <!-- table in right  -->
+                <div class="row" style="margin-top:50px;">
+                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                        <table class="table table-sm" style="page-break-inside: avoid;">
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5" style="text-align: center; vertical-align: middle;">
+                                        <strong>Références à rappeler</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>N° Client</td>
+                                    <td><span t-field="o.partner_id.ref"/></td>
+                                </tr>
+                                <tr>
+                                    <td>N° Facture</td>
+                                    <td><span t-field="o.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Montant €</td>
+                                    <td><span t-field="o.amount_total"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <p style="page-break-before:always;">
+                    <div style="font-size:10px; text-align: justify; text-justify: inter-word;margin-left:-10px;margin-right:-10px;">
+                        <p style="text-align: center;">
+                            <strong style="font-size:10px;">CONDITIONS GÉNÉRALES DE VENTE</strong>
+                        </p>
+                        <p>Ce catalogue n° 30 annule et remplace les éditions
+                            précédentes. Toute commande implique de la part du client l'acceptation, sans réserve,
+                            des conditions généralesde vente ci-contre, qui l'emportent
+                            sur toutes autres conditions du client dont celles pouvant se trouver imprimées sur ses
+                            bons de commandes ou autres documents commerciaux.
+                        </p>
+
+                        <b style="font-size:10px">PRODUITS</b>
+                        <p>Tous les articles présentés sont livrés sans accessoire
+                            sauf ceux spéci fiés dans le texte. Les photographies et caractéristiques techniques des
+                            produits (dont le nombre de tours des instruments
+                            rotatifs, les dimensions.) n'ont qu'une valeur indicative et ne sont pas contractuels.
+                            Nous nous réservons le droit d'apporter, à tout moment, et même pour les commandes en
+                            cours, toutes modifications jugées utiles aux produits sans toutefois que les
+                            caractéristiques
+                            essentielles puissent s'en trouver affectées. Il appartient, en conséquence, au client
+                            de s'assurer, lors de sa commande, que
+                            les caractéristiques (et notamment les dimensions), si elles sont pour lui essentielles,
+                            n'ont pas évoluées.
+                        </p>
+                    </div>
+                </p>
+                <div class="page">
+                    <div style="font-size:10px; text-align: justify; text-justify: inter-word;margin-left:-10px;margin-right:-10px;">
+                        <p>Tous les dispositifs médicaux que nous commercialisons sont
+                            conformes à la norme CE qui
+                            leur est attachée. Nous respectons l'obligation de la traçabilité obligatoire pour
+                            certains produits.
+                            <br/>
+                            Conformément à l'article 18 du décret n° 2005-829 relatif à la composition des
+                            équipements électriques et électroniques et à l'élimination des déchets issus de ces
+                            équipements, l'organisation et le
+                            financement de l'enlèvement et du traitement des déchets d'EEE objet du présent contrat
+                            de vente sont transférés à l'Acheteur qui les accepte. L'Acheteur s'assure de la
+                            collecte de l'équipement objet
+                            de la vente, de son traitement et de sa valorisation, conformément à l'article 21 dudit
+                            décret. Le non- respect par l'Acheteur des obligations ainsi mises à sa charge peut
+                            entraîner l'application des
+                            sanctions pénales prévues par à l'article 25 du décret n° 2005-829 à son encontre.
+                        </p>
+                        <b style="font-size:10px">DÉLAIS</b>
+                        <p>Les délais de livraison ne sont donnés qu'à titre
+                            indicatif. Les retards éventuels ne donnent pas au client le droit d'annuler la vente,
+                            de refuser la marchandise ou de réclamer un dédommagement
+                            quelconque. En tout état de cause, les délais convenus seront prorogés en cas de force
+                            majeure. Constituent notamment des cas de force majeure, l'arrêt total ou partiel de
+                            notre personnel ou de celui
+                            de l'un de nos fournisseurs ou transporteurs pour grève, incendie, inondation, accident
+                            de fabrication, manque de matières premières.
+                        </p>
+
+                        <b style="font-size:10px">LIVRAISON - TRANSPORT</b>
+                        <p>Les marchandises voyagent toujours aux risques et
+                            périls du client et ce, quelle que soit leur destination et quel que soit le mode de
+                            transport. Au cas où la livraison serait con ée à un transporteur,
+                            il appartient au client, en cas d'avarie ou de manquant, de faire toute constatation
+                            nécessaire sur les documents de transport et de con firmer ses réserves par LRAR auprès
+                            du transporteur dans les 3
+                            jours qui suivent la réception des marchandises. Tous accessoires (monte meuble.) et/ou
+                            manutentions supplémentaires nécessaires lors d'une livraison et qui seraient notamment
+                            dus au non-respect
+                            des normes d'accessibilité des locaux, sont à la charge du client et seront facturés en
+                            sus.
+                        </p>
+
+                        <b style="font-size:10px">RÉCEPTION</b>
+                        <p>Sans préjudice des dispositions qui précèdent, le
+                            client devra nous aviser immédiatement par téléphone puis par LRAR dans les 48 heures
+                            suivant la réception des marchandises, de toutes anomalies.
+                            Passé ce délai, aucune réclamation ne sera prise en compte. Lors de la réception de sa
+                            commande, le client devra indiquer, le cas échéant, sur le récépissé de transport, tout
+                            dégât éventuel sur la
+                            marchandise reçue. A défaut, aucune prise en charge ne pourra être faite. En cas
+                            d'anomalie signalée dans le délai sus indiqué et reconnue, seule la réparation de la
+                            marchandise incriminée ou son
+                            remplacement, ou éventuellement un avoir correspondant au plus à la valeur de la
+                            marchandise, peut en résulter, sans autre indemnité de quelque nature que ce soit, le
+                            choix de la solution la plus
+                            appropriée nous étant réservé. Les meubles de rangement de la gamme AURORA et ELITE
+                            seront livrés conformément au plan signé par le client, aucune modification ne pourra
+                            alors être apportée.
+                        </p>
+
+                        <b style="font-size:10px">RETOUR</b>
+                        <p>Tout retour de marchandises doit, au préalable, faire
+                            l'objet de notre accord écrit. En cas de retour accepté, celui-ci devra se faire en
+                            franco de port, les frais inhérents à ces retours étant entièrement
+                            à la charge du client jusqu'à ce que notre responsabilité soit reconnue. En tout état de
+                            cause, le retour des marchandises doit se faire dans leur emballage d'origine.
+                        </p>
+
+                        <b style="font-size:10px">PRIX</b>
+                        <p>Les marchandises sont fournies au tarif en vigueur au
+                            jour de la commande, les prix figurant au catalogue ne sont donnés qu'à titre indicatif.
+                            Tarif TTC calculé au taux de TVA en vigueur, soit 20
+                            %. Dans le cas d'une modi fication de ce taux, les tarifs seraient revus en fonction. Il
+                            appartient, en conséquence, au client de vérifier qu'il dispose bien du tarif en vigueur
+                            au moment de sa
+                            commande. Aucune contestation sur le prix ne sera admise s'il n'a pas eu de demande
+                            préalable de facture pro-forma ou de devis chiffré et retourné signé par le client. Par
+                            ailleurs, toute offre de prix
+                            est valable uniquement 1 mois. Les prix de notre catalogue s'entendent TTC. Les prix
+                            quantitatifs sont donnés pour une unité. Pour toute commande dont le montant serait
+                            inférieur à 55 _ TTC
+                            (45,83 _ HT), seront comptés des frais de facturation et d'emballage qui s'élèvent à 8 _
+                            TTC (6,67 _ HT), ainsi que les frais de port. Pour toute commande dont le montant est
+                            compris entre 55 _
+                            et 230 _ TTC, seuls les frais de port seront facturés au client. Pour toute commande
+                            (hors SAV) dont le montant excède 230 _ TTC et devant être livrée en France
+                            Métropolitaine (hors Corse), le
+                            client bénéficiera d'un Franco de Port et d'emballage (hors frais d'assurance et
+                            supplément pour transport express). Toute commande de matériel d'installation inférieure
+                            à 6 000 _ TTC sera expédiée
+                            gratuitement par transporteur ou installéepar un de nos techniciens, moyennant un
+                            supplément de 400 _ TTC (France métropolitaine).
+                        </p>
+
+                        <b style="font-size:10px">CONDITIONS DE PAIEMENT</b>
+                        <p>Toutes nos factures sont payables au comptant à
+                            réception et sans escompte. Par ailleurs, pour toute commande de matériel
+                            d'installation, un acompte représentant approximativement 15 % du
+                            montant total de la commande pourra être demandé dès la commande. Toute somme non payée
+                            à l'échéance pourrait entraîner : - le paiement d'intérêts de retard au taux égal à 1
+                            fois et demie le
+                            taux d'intérêt légalet une indemnité forfaitaire de 40 _ conformément à la
+                            réglementation en vigueur. Ces intérêts courront jusqu'au paiement effectif encaissé. -
+                            l'exigibilitéimmédiate de la totalité de la
+                            dette en cas de paiement échelonné - l'exigibilité immédiate de toutes les factures non
+                            encore échues - la suspension ou l'annulation, à notre choix, de toute commande en
+                            cours. En cas de
+                            non-respect des délais de paiement, lesfutures commandes seraient dues à la commande.
+                        </p>
+
+                        <b style="font-size:10px">GARANTIE</b>
+                        <p>Nos marchandises sont garanties, contre tout vice de
+                            fabrication ou de défaut de matière. La durée de garantie est celle indiquée sur notre
+                            catalogue, le point de départ dudit délai étant la date de
+                            facturation des marchandises. Notre matériel d'occasion est garanti 3 mois. La garantie
+                            est limitéeau remplacement ou à la réparation de la marchandise reconnue défectueuse à
+                            l'exception des
+                            pièces d'usure telles que les roulements et charbons pour les instruments rotatifs,
+                            l'éclairage (ampoules, néons), les batteries et piles, les flexibles, les fusibles ainsi
+                            les options personnalisées et les
+                            tapisseries du fauteuil. Ceci qu'en France métropolitaine. En aucune façon la présente
+                            garantie ne couvre les dommages directs ou indirects qui trouveraient leur origine dans
+                            l'utilisation des
+                            marchandises. La garantie n'est acquise qu'à la condition que le client nous ait informé
+                            des désordres dans les 72 heures de leurs apparitions et qu'il ne soit pas intervenu,
+                            lui-même ou par
+                            l'intermédiaire d'un tiers, sur les marchandises depuis leur mise à disposition. Sont
+                            exclues de la garantie les réparations qui résulteraient de l'usure normale des
+                            marchandises, de détérioration ou
+                            d'accident provenant de négligence, de défaut de surveillance ou d'entretien, de
+                            non-respect des règles d'utilisation préconisées par le fabricant tels que notamment,
+                            purge compresseur non faite,
+                            mauvaise lubrification ou stérilisation non conforme, non-respect du changement de la
+                            cartouche filtre à huile tous les 6 mois. Notre matériel d'occasion est garanti 3 mois
+                            pièces et main d'ouvre
+                            uniquement, les frais de transport sont exclus de cette garantie. La garantie s'effectue
+                            dans notre atelier pour l'ensemble des composants techniques amovibles transportables
+                            (type instrumentation,
+                            moteurs de domiciles, tiroirs techniques, compresseurs, autoclaves.), dans les
+                            conditions énumérées au chapitre Transport et, sur site dans les cas contraires. Ceci
+                            qu'en France métropolitaine.
+                        </p>
+
+                        <b style="font-size:10px">SERVICE APRÈS VENTE</b>
+                        <p>En cas de retour dans nos locaux, les frais de port
+                            (aller et retour) des marchandises et, le cas échéant, du matériel de prêtsont à la
+                            charge du client. Dans tous les cas, le client veillera à prendre les
+                            assurances nécessaires en fonction de la valeur du bien transporté. Le matériel de prêt
+                            gratuit ne sera mis à la disposition du client que dans la mesure où celui-ci en fait la
+                            demande, uniquement si
+                            le matériel à réparer a été acheté dans nos établissements et, suivant les
+                            disponibilités du matériel. Pour le matériel d'occasion, nous mettrons tout en ouvre
+                            pour trouver la pièce défectueuse mais
+                            aucun déplacement sur site ne sera fait. Toute réclamation quant à la qualité d'une
+                            réparation doit être faite dans un délai de trois jours suivants la réception du
+                            matériel. Concernant les autoclaves, il
+                            n'est pas prévu de système de prêt gratuit durant l'immobilisation de l'appareil.
+                        </p>
+
+                        <b style="font-size:10px">RÉSERVEDE PROPRIÉTÉ</b>
+                        <p>Nous conservons l'entière et exclusive propriété des
+                            marchandises vendues jusqu'au paiement intégralde leur prix (loi 80.335 du 12/05/1980),
+                            mais le client en assumera les risques dès leur livraison.
+                        </p>
+
+                        <b style="font-size:10px">CONTESTATION</b>
+                        <p>Sauf disposition légale contraire, toute contestation,
+                            de quelque ordre qu'elle soit, sera de la compétence exclusive du Tribunal de Commerce
+                            de Lillequi se devra d'appliquer la loi française.
+                        </p>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='origin']" position="before">
+                <div>
+                    <strong>Mode de règlement :</strong>
+                    <br/>
+                    <span t-field="o.invoice_payment_term_id"/>
+                </div>
+            </xpath>
+            <xpath expr="//th[@name='th_description']" position="replace">
+                <th name="th_description"><span>articles</span></th>
+            </xpath>
+            <xpath expr="//th[@name='th_quantity']" position="replace">
+                <th name="th_quantity"><span>qté</span></th>
+            </xpath>
+            <xpath expr="//th[@name='th_priceunit']" position="replace">
+                <th name="th_priceunit"><span>prix unitaire ht</span></th>
+            </xpath>
+            <xpath expr="//th[@name='th_taxes']" position="replace">
+                <th name="th_taxes"><span>tva</span></th>
+            </xpath>
+            <xpath expr="//th[@name='th_subtotal']" position="replace">
+                <th name="th_subtotal"><span>total ht</span></th>
+            </xpath>
+
+            <xpath expr="//th[@name='th_subtotal']" position="replace">
+                <th name="th_subtotal"><span>total ht</span></th>
+            </xpath>
+
+            <xpath expr="//p[@name='payment_communication']" position="replace"/>
+            <xpath expr="//span[@t-field='line.product_uom_id']" position="replace"/>
+            <xpath expr="//span[@id='line_tax_ids']" position="replace">
+                <span t-field="line.tax_ids.amount" t-options="{'widget':'integer'}"/>%
+            </xpath>
+            <xpath expr="//span[@t-field='line.price_unit']" position="after">
+                <span t-field="o.currency_id.symbol"></span>
+            </xpath>
+        </template>
+
+        <template id="tax_total_bottom" inherit_id="account.document_tax_totals">
+            <xpath expr="//t[@t-name='account.document_tax_totals']" position="replace">
+                <t t-name="account.document_tax_totals">
+            <!--
+                Generic template to display tax totals in pdf reports.
+                Used by invoices, SO and PO.
+
+                ARGUMENTS:
+                - tax_totals: dict in the form generated by account.move's _get_tax_totals.
+            -->
+            <t t-foreach="tax_totals['subtotals']" t-as="subtotal">
+                <tr class="border-black o_subtotal">
+                    <td>Total HT</td>
+
+                    <td class="text-right">
+                        <span t-att-class="oe_subtotal_footer_separator" t-esc="subtotal['formatted_amount']"/>
+                    </td>
+                </tr>
+
+                <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
+                <t t-call="account.tax_groups_totals"/>
+            </t>
+
+            <!--Total amount with all taxes-->
+            <tr class="border-black o_total">
+                <td><strong>Total TTC à payer</strong></td>
+                <td class="text-right">
+                    <span t-esc="tax_totals['formatted_amount_total']"/>
+                </td>
+            </tr>
+        </t>
+            </xpath>
+
+
+
+        </template>
+
+        <template id="tax_groups_totals_edited" inherit_id="account.tax_groups_totals">
+            <xpath expr="//t[@t-name='account.tax_groups_totals']" position="replace">
+                <t t-name="account.tax_groups_totals">
+            <!--
+                Generic template to display a list of tax groups with the related amounts.
+
+                ARGUMENTS:
+                - tax_totals: dict in the form generated by account.move's _get_tax_totals.
+                - subtotal_to_show: The subtotal we need to render the groups from
+            -->
+            <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+                <tr>
+                    <t t-if="len(tax_totals['groups_by_subtotal'][subtotal_to_show]) &gt; 1 or (tax_totals['amount_untaxed'] != amount_by_group['tax_group_base_amount'])">
+                        <td>
+                            <span>Total TVA</span>
+                            <span class="text-nowrap"> on
+                                <t t-esc="amount_by_group['formatted_tax_group_base_amount']"/>
+                            </span>
+                        </td>
+                        <td class="text-right o_price_total">
+                            <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                        </td>
+                    </t>
+                    <t t-else="">
+                        <td><span>Total TVA</span></td>
+                        <td class="text-right o_price_total">
+                            <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                        </td>
+                    </t>
+                </tr>
+            </t>
+        </t>
+
+            </xpath>
+        </template>
+    </data>
+</odoo>

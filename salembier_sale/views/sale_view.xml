@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sale_view_form_custom_inherit" model="ir.ui.view">
+            <field name="name">sale.order.custom.inherit.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='validity_date']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='discount']"
+                       position="after">
+                    <field name="pu_net"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']"
+                       position="after">
+                    <field name="amount_ttc"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']"
+                       position="after">
+                    <field name="pu_ttc"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='discount']"
+                       position="after">
+                    <field name="pu_discount"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="replace">
+                    <field name="name"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_packaging_qty']"
+                       position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='pu_net']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='validity_date']" position="attributes">
+                    <attribute name="string">Date de validité</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+                    <attribute name="domain">[('parent_id','=',partner_id)]</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="domain">[('type', '!=', 'private'), ('company_id', 'in', (False, company_id)), ('customer_rank', '&gt;=', 1)]</attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="total_due"/>
+                    <field name="related_category_id" widget="many2many_tags" string="Étiquettes Client"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_status']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="attributes">
+                    <attribute name="options">{'no_create': True}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="options">{'no_create': True}</attribute>
+                </xpath>
+                <group name="sale_info" position="replace">
+                    <group name="sale_info" string="Invoicing">
+                      <field name="fiscal_position_id" options="{'no_create': True}"/>
+                      <field name="analytic_account_id" context="{'default_partner_id':partner_invoice_id, 'default_name':name}" attrs="{'readonly': [('invoice_count','!=',0),('state','=','sale')]}" groups="analytic.group_analytic_accounting" force_save="1"/>
+                      <field name="invoice_status" states="sale,done" groups="base.group_no_one" readonly="False"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>
