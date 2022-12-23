@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data noupdate="0">
+	
+		<record id="sample_reorder_rule_import_xls" model="ir.attachment">
+	        <field name="name">RuleImport.xls</field>
+	        <field name="public" eval="True"/>
+	        <field name="type">binary</field>
+	        <field name="datas" type="base64" file="reorder_rule_import/Sample Files/RuleImport.xls"/>
+	    </record>
+	
+	    <record id="sample_reorder_rule_import_csv" model="ir.attachment">
+	        <field name="name">RuleImport.csv</field>
+	        <field name="public" eval="True"/>
+	        <field name="type">binary</field>
+	        <field name="datas" type="base64" file="reorder_rule_import/Sample Files/RuleImport.csv"/>
+	    </record>
+	    
+	</data>
+</odoo>

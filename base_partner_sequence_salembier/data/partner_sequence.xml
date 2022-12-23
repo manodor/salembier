@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+    <record id="seq_res_partner_supplier" model="ir.sequence">
+        <field name="name">Partner code supplier</field>
+        <field name="code">res.partner.supplier</field>
+        <field name="prefix">P/</field>
+        <field name="padding">5</field>
+    </record>
+
+    <record id="seq_res_partner_customer" model="ir.sequence">
+        <field name="name">Partner code customer</field>
+        <field name="code">res.partner.customer</field>
+        <field name="prefix">P/</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

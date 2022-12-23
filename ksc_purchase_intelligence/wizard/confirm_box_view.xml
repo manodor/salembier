@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="confirm_box_form_view" model="ir.ui.view">
+        <field name="name">confirm.box.form</field>
+        <field name="model">confirm.box</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="yes_no" nolabel="1" readonly="1"/>
+                    <field name="intelligence_ids" invisible="1"/>
+                    <footer>
+                        <button name="yes" string="Create Purchase" type="object" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

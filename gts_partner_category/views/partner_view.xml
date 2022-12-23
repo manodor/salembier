@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_partner" name="Partner"
+            parent="sale.menu_sale_config"
+            action="base.action_partner_supplier_form" sequence="15"/>
+
+        <menuitem id="mennu_partner_id" name="Partner"
+            parent="menu_partner"
+            action="base.action_partner_supplier_form" sequence="15"/>
+
+<!-- i have no chose to deplace the fields in salembier_res_partner -->
+<!--        <record id="view_partner_form_inherit_gts" model="ir.ui.view">-->
+<!--            <field name="name">res.partner.form.inherit</field>-->
+<!--            <field name="model">res.partner</field>-->
+<!--            <field name="inherit_id" ref="base.view_partner_form"/>-->
+<!--            <field eval="1" name="priority"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="/form/sheet/div/h1" position="after">-->
+<!--                    <div class="o_row">-->
+<!--                        <field name="group_category_id" options='{"no_open": True, "no_create": True}'-->
+<!--                               placeholder="Group Category..."/>-->
+<!--                    </div>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="view_res_partner_filter_inherit_gts1" model="ir.ui.view">
+            <field name="name">res.partner.search.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="group_category_id"/>
+                    <filter name="group_category" string="Group Category"
+                            context="{'group_by': 'group_category_id'}"/>
+              </xpath>
+                <field name="category_id" position="after">
+                    <field name="group_category_id"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_import_product_packaging,access.import.product.packaging,model_import_product_packaging,,1,1,1,1
+access_import_price_supplier,access.supplier.price.import,model_supplier_price_import,,1,1,1,1

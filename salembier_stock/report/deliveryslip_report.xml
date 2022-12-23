@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="deliveryslip_edited" inherit_id="stock.report_delivery_document">
+            <xpath expr="//p[@t-field='o.scheduled_date']" position="replace">
+                <p t-field="o.scheduled_date" t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
+            </xpath>
+            <xpath expr="//t[@t-set='address']" position="replace"/>
+
+            <xpath expr="//t[@t-set='information_block']" position="replace">
+                <t t-set="address">
+                    <div class="row">
+                        <div class="col-7" name="div_incoming_address">
+                            <div t-if="o.picking_type_id.code=='incoming' and partner">
+                                <span>
+                                    <strong>Adresse du vendeur :</strong>
+                                </span>
+                            </div>
+                            <div t-if="o.picking_type_id.code=='internal' and partner">
+                                <span>
+                                    <strong>Adresse de l'entrepôt :</strong>
+                                </span>
+                            </div>
+                            <div t-if="o.picking_type_id.code=='outgoing' and partner">
+                                <span>
+                                    <strong>Adresse du client :</strong>
+                                </span>
+                            </div>
+                            <div t-if="partner" name="partner_header">
+                                <div t-field="partner.commercial_partner_id"
+                                     t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+
+                                <p t-if="partner.sudo().commercial_partner_id.vat"><t
+                                        t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>:
+                                    <span t-field="partner.sudo().commercial_partner_id.vat"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+                <t t-set="information_block">
+                    <div name="div_outgoing_address">
+                        <div t-if="o.should_print_delivery_address()">
+                            <span>
+                                <strong>Adresse de livraison :</strong>
+                            </span>
+                            <div t-field="o.move_lines[0].partner_id"
+                                 t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                        </div>
+                        <div t-elif="o.picking_type_id.code != 'internal' and o.picking_type_id.warehouse_id.partner_id">
+                            <span>
+                                <strong>Adresse de l'entrepôt :</strong>
+                            </span>
+                            <div t-field="o.picking_type_id.warehouse_id.partner_id"
+                                 t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                        </div>
+                    </div>
+                </t>
+
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

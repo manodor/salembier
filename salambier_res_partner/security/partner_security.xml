@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_create_partner" model="res.groups">
+            <field name="name">Allow Create partner</field>
+        </record>
+    </data>
+</odoo>

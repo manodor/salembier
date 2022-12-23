@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="add_intelligence_line_form_view" model="ir.ui.view">
+        <field name="name">add.intelligence.line.form</field>
+        <field name="model">add.intelligence.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <!-- domain="[('id', 'in', context['product'])]"-->
+                        <field name="product_id"/>
+                        <field name="name" invisible="1"/>
+                        <field name="ref"/>
+                        <field name="forecasted_qty"/>
+                        <field name="qty_packaging"/>
+                        <field name="min_qty"/>
+                        <field name="max_qty"/>
+                        <field name="vendor_id"/>
+                        <field name="onhand_qty"/>
+                        <field name="incoming_qty"/>
+                        <field name="outgoing_qty"/>
+                        <field name="purchase_qty"/>
+                        <field name="static"/>
+                        <field name="product_topology"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Create" name="create_intelligence_rec" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

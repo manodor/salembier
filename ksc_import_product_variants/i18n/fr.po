@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ksc_import_product_variants
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 10:15+0000\n"
+"PO-Revision-Date: 2022-09-08 12:16+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: ksc_import_product_variants
+#: model_terms:ir.ui.view,arch_db:ksc_import_product_variants.import_product_variant_view
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant__display_name
+msgid "Display Name"
+msgstr "Afficher un nom"
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant__id
+msgid "ID"
+msgstr ""
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant__import_file
+msgid "Import File"
+msgstr "Importer le fichier"
+
+#. module: ksc_import_product_variants
+#: model:ir.actions.act_window,name:ksc_import_product_variants.import_product_variant_action
+#: model:ir.ui.menu,name:ksc_import_product_variants.import_product_variant_menu
+#: model_terms:ir.ui.view,arch_db:ksc_import_product_variants.import_product_variant_view
+msgid "Import Product Variants"
+msgstr "Importer des variantes de produit"
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ksc_import_product_variants
+#: model:ir.model.fields,field_description:ksc_import_product_variants.field_import_product_variant__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ksc_import_product_variants
+#: model:ir.model,name:ksc_import_product_variants.model_import_product_variant
+msgid "import.product.variant"
+msgstr ""
+
+#. module: ksc_import_product_variants
+#: model_terms:ir.ui.view,arch_db:ksc_import_product_variants.import_product_variant_view
+msgid "ou"
+msgstr ""

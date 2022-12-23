@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* iwesabe_product_image_so_line
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-21 14:51+0000\n"
+"PO-Revision-Date: 2022-06-21 16:51+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: iwesabe_product_image_so_line
+#: model:ir.model.fields,field_description:iwesabe_product_image_so_line.field_sale_order_line__product_image
+msgid "Image"
+msgstr ""
+
+#. module: iwesabe_product_image_so_line
+#: model_terms:ir.ui.view,arch_db:iwesabe_product_image_so_line.sale_report_product_image_inherit
+msgid "Reference"
+msgstr "Référence"
+
+#. module: iwesabe_product_image_so_line
+#: model:ir.model,name:iwesabe_product_image_so_line.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: iwesabe_product_image_so_line
+#: model:ir.model,name:iwesabe_product_image_so_line.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
+
+#. module: iwesabe_product_image_so_line
+#: model:ir.model.fields,field_description:iwesabe_product_image_so_line.field_sale_order__show_image_in_report
+msgid "Show Image in Report"
+msgstr "Afficher l'image dans le rapport"

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="import_supplier_price_view" model="ir.ui.view">
+        <field name="name">import.price.supplier.info.view</field>
+        <field name="model">supplier.price.import</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="import_file"/>
+                </group>
+                <footer>
+                    <button name="import_supplier_price" type="object" string="Import Price supplier"
+                            class="oe_highlight"/>
+                    ou
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="supplier_priceinfo_import">
+        <field name="name">Import price supplier</field>
+        <field name="res_model">supplier.price.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="import_product_packaging_menu"
+              name="Import supplier price"
+              parent="stock.menu_stock_inventory_control"
+              action="supplier_priceinfo_import"
+              sequence="10"/>
+</odoo>

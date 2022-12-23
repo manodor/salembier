@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_family_form" model="ir.ui.view">
+            <field name="name">product family form</field>
+            <field name="model">product.family</field>
+            <field name="arch" type="xml">
+                <form string="Product Family">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_family_tree" model="ir.ui.view">
+            <field name="name">product.family.tree</field>
+            <field name="model">product.family</field>
+            <field name="arch" type="xml">
+                <tree string="Product Family">
+                    <field name="name"  required="1"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_family_action" model="ir.actions.act_window">
+            <field name="name">Product family</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.family</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Product family.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="product_family_menu"
+                  name="Product family"
+                  parent="stock.menu_product_in_config_stock"
+                  action="product_family_action"/>
+
+    </data>
+</odoo>

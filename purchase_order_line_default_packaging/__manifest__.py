@@ -1,0 +1,16 @@
+{
+    "name": "Purchase Order Line Default Packaging",
+    "summary": """
+        Sets the first packaging of the product as default.
+    """,
+    "author": "sirius",
+    "website": "https://www.mint-system.ch",
+    "category": "Sale",
+    "version": "15.0.1.1.0",
+    "license": "AGPL-3",
+    "depends": ["sale_management", "stock"],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+    "images": ["images/screen.png"],
+}

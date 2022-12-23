@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="group_product_filter_user" model="res.groups">
+		<field name="name">Allow Product Filter based on Supplier Selection </field>
+		<field name="implied_ids" eval="[(4,ref('base.user_admin'))]"/>
+	</record>
+
+</odoo>

@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="monthly_report_header" inherit_id="web.external_layout_boxed">
+            <xpath expr="//div[1]" position="replace">
+                <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                    <div class="o_boxed_header">
+                        <div class="row">
+                            <div style="padding-right:100px">
+                                <img style="max-height:50px;poisiton:absolute;" t-if="company.logo"
+                                     t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                            </div>
+                            <div style="text-align:right;font-size:15px;padding-left:250px;!important">
+                                <span t-if="company.company_details" t-field="company.company_details"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="contact" inherit_id="base.contact">
+            <xpath expr="//address/t" position="after">
+                <div t-if="object.enseigne and 'enseigne' in fields">
+                    <!--                     class='css_editable_mode_hidden'>-->
+                    <div itemprop="enseigne" t-esc="object.enseigne" style="font-size:12px;"/>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="report_saleorder_customized_prices" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//t[@t-set='address']" position="replace">
+                <div class="row" name="div_outgoing_address">
+                    <div style="padding-right:150px;padding-left:50px">
+                        <span>
+                            <strong>Adresse de Livraison:</strong>
+                        </span>
+                        <div t-field="doc.partner_shipping_id"
+                             t-options='{"widget": "contact", "fields": [ "name", "enseigne", "address","phone", "mobile" ,"email"], "no_marker": True, "phone_icons": True}'/>
+                    </div>
+                    <div style="padding-left:250px">
+                        <span>
+                            <strong>Adresse de Facturation:</strong>
+                        </span>
+                        <div t-field="doc.partner_id"
+                             t-options='{"widget": "contact", "fields": [ "name", "enseigne", "address","phone", "mobile" ,"email"], "no_marker": True, "phone_icons": True}'/>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+            </xpath>
+            <xpath expr="//div[@name='expiration_date']" position="replace">
+
+                <div t-if="doc.state!='sale'">
+                    <strong>Date de validité:</strong>
+                    <br/>
+                    <span t-field="doc.validity_date"/>
+                </div>
+                <div t-if="doc.state=='sale'">
+                    <strong>Mode de règlement :</strong>
+                    <br/>
+                    <span t-field="doc.payment_term_id"/>
+                </div>
+
+            </xpath>
+
+            <xpath expr="//p[@t-field='doc.date_order']" position="replace">
+                <p t-field="doc.date_order" t-options='{"widget": "date", "format": "dd/MM/yyyy"}' />
+            </xpath>
+            <xpath expr="//th[@name='th_description']" position="replace">
+                <th name="th_description" class="text-center">DESCRIPTION</th>
+            </xpath>
+
+            <xpath expr="//th[@name='th_quantity']" position="replace">
+                <th name="th_quantity" class="text-center">Qté</th>
+            </xpath>
+
+            <xpath expr="//th[@name='th_discount']" position="replace">
+                <th name="th_discount" t-if="display_discount" class="text-right"
+                    groups="product.group_discount_per_so_line">
+                    <span>REM.(%)</span>
+                </th>
+            </xpath>
+
+            <xpath expr="//th[@name='th_priceunit']" position="replace">
+                <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                    <th name="th_priceunit" class="text-center">P.U.TTC</th>
+                </t>
+                <t t-else="">
+                    <th name="th_priceunit" class="text-center">P.U.HT</th>
+                </t>
+            </xpath>
+
+            <xpath expr="//th[@name='th_taxes']" position="replace">
+                <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                </t>
+                <t t-else="">
+                </t>
+            </xpath>
+
+            <xpath expr="//td[@name='td_taxes']" position="replace">
+                <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                </t>
+                <t t-else="">
+                </t>
+            </xpath>
+
+            <xpath expr="//th[@name='th_discount']" position="after">
+                <th t-if="display_discount" name="th_pricenet" class="text-right"
+                    groups="product.group_discount_per_so_line">P.U.Net
+                </th>
+            </xpath>
+
+            <xpath expr="//th[@name='th_subtotal']" position="replace">
+                <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                    <th name="th_subtotal" class="text-center">
+                        <span>Total TTC</span>
+                    </th>
+                </t>
+                <t t-else="">
+                    <th name="th_subtotal" class="text-center">
+                        <span>Total HT</span>
+                    </th>
+                </t>
+            </xpath>
+
+            <xpath expr="//td[@name='td_priceunit']" position="replace">
+                <t t-if="line.product_id.product_comment">
+                    <td></td>
+                </t>
+                <t t-else="">
+                    <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                        <td name="td_priceunit" class="text-right">
+                            <span t-field="line.pu_ttc"/>
+                            <span t-field="doc.currency_id.symbol"/>
+                        </td>
+                    </t>
+                    <t t-else="">
+                        <td name="td_priceunit" class="text-right" style="width:90px">
+                            <span t-field="line.price_unit"/>
+                            <span t-field="doc.currency_id.symbol"/>
+                        </td>
+                    </t>
+                </t>
+            </xpath>
+
+            <xpath expr="//td[@t-if='display_discount']" position="after">
+                <td t-if="display_discount" name="td_pricenet" class="text-right"
+                    groups="product.group_discount_per_so_line">
+                    <span t-field="line.pu_net"/>
+                    <span t-field="doc.currency_id.symbol"/>
+                </td>
+            </xpath>
+
+            <xpath expr="//td[@name='td_subtotal']" position="replace">
+                <t t-if="line.product_id.product_comment">
+                    <td></td>
+                </t>
+                <t t-else="">
+                    <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                        <td name="td_subtotal" class="text-right">
+                            <span t-field="line.amount_ttc"/>
+                            <span t-field="doc.currency_id.symbol"/>
+                        </td>
+                    </t>
+                    <t t-else="">
+                        <td name="td_subtotal" class="text-right">
+                            <span t-field="line.price_subtotal"/>
+                        </td>
+                    </t>
+                </t>
+            </xpath>
+            <xpath expr="//div[@t-if='doc.user_id.name']" position="before">
+                <div t-if="doc.partner_id.ref" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Customer code:</strong>
+                    <p class="m-0" t-field="doc.partner_id.ref"/>
+                </div>
+            </xpath>
+            <xpath expr="//div[@t-if='doc.user_id.name']/strong" position="replace">
+                <strong>Your representative:</strong>
+            </xpath>
+            <xpath expr="//td[@name='td_quantity']/span[@t-field='line.product_uom']" position="replace">
+            </xpath>
+            <xpath expr="//td[@name='td_quantity']" position="replace">
+                <td name="td_quantity" class="text-right">
+                    <t t-if="line.product_id.product_comment">
+                        <td></td>
+                    </t>
+                    <t t-else="">
+                        <span t-field="line.product_uom_qty"/>
+                    </t>
+                </td>
+            </xpath>
+            <!--            <xpath expr="//td[@name='td_name']" position="replace">-->
+            <!--                <td name="td_name"><span t-esc="line.name.replace('[' + str(line.product_id.default_code) + ']', '')"/></td>-->
+            <!--            </xpath>-->
+            <xpath expr="//div[@id='total']/div" position="replace">
+                <div class="col-8">
+                    <table class="table table-sm" style="border:black solid 1px !important" t-if="doc.state == 'draft'">
+                        <tr>
+                            <td style="width:40%;border:black solid 1px !important" valign="center"
+                                class="border-black">
+                                <span>For acceptance of this quote
+                                    return it to us dated and signed
+                                    with the mention 'Good for agreement'
+                                </span>
+                            </td>
+
+                            <td style="width:60%;border:black solid 1px !important" class="border-black">
+                                <span>Done in</span>
+                                <br/>
+                                <span>The</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:black solid 1px !important; height:85px;background-color:white !important; color:#495057 !important"
+                                class="border-black" colspan="2">
+                                <span>Signature + mention</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div t-attf-class="col-4" style="height:200px !important; width:500px !important">
+                    <table class="table table-sm" style="border:black solid 1px !important">
+                        <!-- Tax totals -->
+                        <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                            <t t-set="tax_totals" t-value="json.loads(doc.tax_totals_json)"/>
+                        </t>
+                        <t t-else="">
+                            <t t-set="tax_totals" t-value="json.loads(doc.tax_totals_json)"/>
+                        </t>
+                        <t t-foreach="tax_totals['subtotals']" t-as="subtotal">
+                            <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                                <tr class="border-black">
+                                    <td name="td_section_ttc_b_disc" style="border-top: 1px solid black !important;">
+                                        <strong class="mr16">Total TTC before discount</strong>
+                                    </td>
+                                    <td class="text-right" style="border-top: 1px solid black !important;">
+                                        <span t-esc="doc.amount_total + doc.amount_discount"
+                                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td name="td_amount_discount">
+                                        <strong class="mr16">Total discounts</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="doc.amount_discount"
+                                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-else="">
+                                <tr class="border-black o_subtotal">
+                                    <td name="td_section_subtotal" style="border-top: 1px solid black !important;">
+                                        <strong class="mr16">Total HT before discount</strong>
+                                    </td>
+                                    <td class="text-right" style="border-top: 1px solid black !important;">
+                                        <span t-esc="doc.amount_untaxed + doc.amount_discount"
+                                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td name="td_amount_discount">
+                                        <strong class="mr16">Total discounts</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="doc.amount_discount"
+                                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </t>
+
+                            <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
+                            <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+                                <tr>
+
+                                    <t t-if="len(tax_totals['groups_by_subtotal'][subtotal_to_show]) > 1">
+                                        <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                                            <td>
+                                                <span t-esc="amount_by_group['tax_group_name']"/>
+                                                <span class="text-nowrap">on
+                                                    <t t-esc="amount_by_group['formatted_tax_group_base_amount']"/>
+                                                </span>
+                                            </td>
+                                            <td class="text-right o_price_total">
+                                                <span class="text-nowrap"
+                                                      t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-if="len(tax_totals['groups_by_subtotal'][subtotal_to_show]) > 1">
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                                            <td>
+                                                <span class="text-nowrap" t-esc="amount_by_group['tax_group_name']"/>
+                                            </td>
+                                            <td class="text-right o_price_total">
+                                                <span class="text-nowrap"
+                                                      t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                        </t>
+                                    </t>
+                                </tr>
+                            </t>
+                        </t>
+
+                        <!--Total amount with all taxes-->
+                        <tr class="border-black o_total">
+                            <td>
+                                <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                                    <strong>Total net TTC en €</strong>
+                                </t>
+                                <t t-else="">
+                                    <strong>Total net HT</strong>
+                                </t>
+
+                            </td>
+                            <td class="text-right">
+                                <t t-if="doc.partner_id.soumis_tva == 'oui'">
+                                    <span t-esc="tax_totals['formatted_amount_total']"/>
+                                </t>
+                                <t t-else="">
+                                    <span t-esc="'%.2f'%(doc.amount_untaxed)"/>
+                                    <span t-field="doc.currency_id.symbol"/>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </xpath>
+            <xpath expr="//p[@id='fiscal_position_remark']" position="replace">
+
+            </xpath>
+        </template>
+
+        <template id="general_conditions_sale">
+            <t t-call="web.basic_layout">
+                <div class="header">
+                    <div style="font-size:10px; text-align: justify; text-justify: inter-word;margin-left:-10px;margin-right:-10px;">
+                        <p style="text-align: center;">
+                            <strong style="font-size:10px;">CONDITIONS GÉNÉRALES DE VENTE</strong>
+                        </p>
+                        <p>Ce catalogue n° 30 annule et remplace les éditions
+                            précédentes. Toute commande implique de la part du client l'acceptation, sans réserve,
+                            des conditions généralesde vente ci-contre, qui l'emportent
+                            sur toutes autres conditions du client dont celles pouvant se trouver imprimées sur ses
+                            bons de commandes ou autres documents commerciaux.
+                        </p>
+
+                        <b style="font-size:10px">PRODUITS</b>
+                        <p>Tous les articles présentés sont livrés sans accessoire
+                            sauf ceux spéci fiés dans le texte. Les photographies et caractéristiques techniques des
+                            produits (dont le nombre de tours des instruments
+                            rotatifs, les dimensions.) n'ont qu'une valeur indicative et ne sont pas contractuels.
+                            Nous nous réservons le droit d'apporter, à tout moment, et même pour les commandes en
+                            cours, toutes modifications jugées utiles aux produits sans toutefois que les
+                            caractéristiques
+                            essentielles puissent s'en trouver affectées. Il appartient, en conséquence, au client
+                            de s'assurer, lors de sa commande, que
+                            les caractéristiques (et notamment les dimensions), si elles sont pour lui essentielles,
+                            n'ont pas évoluées.
+                        </p>
+                    </div>
+                </div>
+                <div class="page">
+                    <div style="font-size:10px; text-align: justify; text-justify: inter-word;margin-left:-10px;margin-right:-10px;">
+                        <p>Tous les dispositifs médicaux que nous commercialisons sont
+                            conformes à la norme CE qui
+                            leur est attachée. Nous respectons l'obligation de la traçabilité obligatoire pour
+                            certains produits.
+                            <br/>
+                            Conformément à l'article 18 du décret n° 2005-829 relatif à la composition des
+                            équipements électriques et électroniques et à l'élimination des déchets issus de ces
+                            équipements, l'organisation et le
+                            financement de l'enlèvement et du traitement des déchets d'EEE objet du présent contrat
+                            de vente sont transférés à l'Acheteur qui les accepte. L'Acheteur s'assure de la
+                            collecte de l'équipement objet
+                            de la vente, de son traitement et de sa valorisation, conformément à l'article 21 dudit
+                            décret. Le non- respect par l'Acheteur des obligations ainsi mises à sa charge peut
+                            entraîner l'application des
+                            sanctions pénales prévues par à l'article 25 du décret n° 2005-829 à son encontre.
+                        </p>
+                        <b style="font-size:10px">DÉLAIS</b>
+                        <p>Les délais de livraison ne sont donnés qu'à titre
+                            indicatif. Les retards éventuels ne donnent pas au client le droit d'annuler la vente,
+                            de refuser la marchandise ou de réclamer un dédommagement
+                            quelconque. En tout état de cause, les délais convenus seront prorogés en cas de force
+                            majeure. Constituent notamment des cas de force majeure, l'arrêt total ou partiel de
+                            notre personnel ou de celui
+                            de l'un de nos fournisseurs ou transporteurs pour grève, incendie, inondation, accident
+                            de fabrication, manque de matières premières.
+                        </p>
+
+                        <b style="font-size:10px">LIVRAISON - TRANSPORT</b>
+                        <p>Les marchandises voyagent toujours aux risques et
+                            périls du client et ce, quelle que soit leur destination et quel que soit le mode de
+                            transport. Au cas où la livraison serait con ée à un transporteur,
+                            il appartient au client, en cas d'avarie ou de manquant, de faire toute constatation
+                            nécessaire sur les documents de transport et de con firmer ses réserves par LRAR auprès
+                            du transporteur dans les 3
+                            jours qui suivent la réception des marchandises. Tous accessoires (monte meuble.) et/ou
+                            manutentions supplémentaires nécessaires lors d'une livraison et qui seraient notamment
+                            dus au non-respect
+                            des normes d'accessibilité des locaux, sont à la charge du client et seront facturés en
+                            sus.
+                        </p>
+
+                        <b style="font-size:10px">RÉCEPTION</b>
+                        <p>Sans préjudice des dispositions qui précèdent, le
+                            client devra nous aviser immédiatement par téléphone puis par LRAR dans les 48 heures
+                            suivant la réception des marchandises, de toutes anomalies.
+                            Passé ce délai, aucune réclamation ne sera prise en compte. Lors de la réception de sa
+                            commande, le client devra indiquer, le cas échéant, sur le récépissé de transport, tout
+                            dégât éventuel sur la
+                            marchandise reçue. A défaut, aucune prise en charge ne pourra être faite. En cas
+                            d'anomalie signalée dans le délai sus indiqué et reconnue, seule la réparation de la
+                            marchandise incriminée ou son
+                            remplacement, ou éventuellement un avoir correspondant au plus à la valeur de la
+                            marchandise, peut en résulter, sans autre indemnité de quelque nature que ce soit, le
+                            choix de la solution la plus
+                            appropriée nous étant réservé. Les meubles de rangement de la gamme AURORA et ELITE
+                            seront livrés conformément au plan signé par le client, aucune modification ne pourra
+                            alors être apportée.
+                        </p>
+
+                        <b style="font-size:10px">RETOUR</b>
+                        <p>Tout retour de marchandises doit, au préalable, faire
+                            l'objet de notre accord écrit. En cas de retour accepté, celui-ci devra se faire en
+                            franco de port, les frais inhérents à ces retours étant entièrement
+                            à la charge du client jusqu'à ce que notre responsabilité soit reconnue. En tout état de
+                            cause, le retour des marchandises doit se faire dans leur emballage d'origine.
+                        </p>
+
+                        <b style="font-size:10px">PRIX</b>
+                        <p>Les marchandises sont fournies au tarif en vigueur au
+                            jour de la commande, les prix figurant au catalogue ne sont donnés qu'à titre indicatif.
+                            Tarif TTC calculé au taux de TVA en vigueur, soit 20
+                            %. Dans le cas d'une modi fication de ce taux, les tarifs seraient revus en fonction. Il
+                            appartient, en conséquence, au client de vérifier qu'il dispose bien du tarif en vigueur
+                            au moment de sa
+                            commande. Aucune contestation sur le prix ne sera admise s'il n'a pas eu de demande
+                            préalable de facture pro-forma ou de devis chiffré et retourné signé par le client. Par
+                            ailleurs, toute offre de prix
+                            est valable uniquement 1 mois. Les prix de notre catalogue s'entendent TTC. Les prix
+                            quantitatifs sont donnés pour une unité. Pour toute commande dont le montant serait
+                            inférieur à 55 _ TTC
+                            (45,83 _ HT), seront comptés des frais de facturation et d'emballage qui s'élèvent à 8 _
+                            TTC (6,67 _ HT), ainsi que les frais de port. Pour toute commande dont le montant est
+                            compris entre 55 _
+                            et 230 _ TTC, seuls les frais de port seront facturés au client. Pour toute commande
+                            (hors SAV) dont le montant excède 230 _ TTC et devant être livrée en France
+                            Métropolitaine (hors Corse), le
+                            client bénéficiera d'un Franco de Port et d'emballage (hors frais d'assurance et
+                            supplément pour transport express). Toute commande de matériel d'installation inférieure
+                            à 6 000 _ TTC sera expédiée
+                            gratuitement par transporteur ou installéepar un de nos techniciens, moyennant un
+                            supplément de 400 _ TTC (France métropolitaine).
+                        </p>
+
+                        <b style="font-size:10px">CONDITIONS DE PAIEMENT</b>
+                        <p>Toutes nos factures sont payables au comptant à
+                            réception et sans escompte. Par ailleurs, pour toute commande de matériel
+                            d'installation, un acompte représentant approximativement 15 % du
+                            montant total de la commande pourra être demandé dès la commande. Toute somme non payée
+                            à l'échéance pourrait entraîner : - le paiement d'intérêts de retard au taux égal à 1
+                            fois et demie le
+                            taux d'intérêt légalet une indemnité forfaitaire de 40 _ conformément à la
+                            réglementation en vigueur. Ces intérêts courront jusqu'au paiement effectif encaissé. -
+                            l'exigibilitéimmédiate de la totalité de la
+                            dette en cas de paiement échelonné - l'exigibilité immédiate de toutes les factures non
+                            encore échues - la suspension ou l'annulation, à notre choix, de toute commande en
+                            cours. En cas de
+                            non-respect des délais de paiement, lesfutures commandes seraient dues à la commande.
+                        </p>
+
+                        <b style="font-size:10px">GARANTIE</b>
+                        <p>Nos marchandises sont garanties, contre tout vice de
+                            fabrication ou de défaut de matière. La durée de garantie est celle indiquée sur notre
+                            catalogue, le point de départ dudit délai étant la date de
+                            facturation des marchandises. Notre matériel d'occasion est garanti 3 mois. La garantie
+                            est limitéeau remplacement ou à la réparation de la marchandise reconnue défectueuse à
+                            l'exception des
+                            pièces d'usure telles que les roulements et charbons pour les instruments rotatifs,
+                            l'éclairage (ampoules, néons), les batteries et piles, les flexibles, les fusibles ainsi
+                            les options personnalisées et les
+                            tapisseries du fauteuil. Ceci qu'en France métropolitaine. En aucune façon la présente
+                            garantie ne couvre les dommages directs ou indirects qui trouveraient leur origine dans
+                            l'utilisation des
+                            marchandises. La garantie n'est acquise qu'à la condition que le client nous ait informé
+                            des désordres dans les 72 heures de leurs apparitions et qu'il ne soit pas intervenu,
+                            lui-même ou par
+                            l'intermédiaire d'un tiers, sur les marchandises depuis leur mise à disposition. Sont
+                            exclues de la garantie les réparations qui résulteraient de l'usure normale des
+                            marchandises, de détérioration ou
+                            d'accident provenant de négligence, de défaut de surveillance ou d'entretien, de
+                            non-respect des règles d'utilisation préconisées par le fabricant tels que notamment,
+                            purge compresseur non faite,
+                            mauvaise lubrification ou stérilisation non conforme, non-respect du changement de la
+                            cartouche filtre à huile tous les 6 mois. Notre matériel d'occasion est garanti 3 mois
+                            pièces et main d'ouvre
+                            uniquement, les frais de transport sont exclus de cette garantie. La garantie s'effectue
+                            dans notre atelier pour l'ensemble des composants techniques amovibles transportables
+                            (type instrumentation,
+                            moteurs de domiciles, tiroirs techniques, compresseurs, autoclaves.), dans les
+                            conditions énumérées au chapitre Transport et, sur site dans les cas contraires. Ceci
+                            qu'en France métropolitaine.
+                        </p>
+
+                        <b style="font-size:10px">SERVICE APRÈS VENTE</b>
+                        <p>En cas de retour dans nos locaux, les frais de port
+                            (aller et retour) des marchandises et, le cas échéant, du matériel de prêtsont à la
+                            charge du client. Dans tous les cas, le client veillera à prendre les
+                            assurances nécessaires en fonction de la valeur du bien transporté. Le matériel de prêt
+                            gratuit ne sera mis à la disposition du client que dans la mesure où celui-ci en fait la
+                            demande, uniquement si
+                            le matériel à réparer a été acheté dans nos établissements et, suivant les
+                            disponibilités du matériel. Pour le matériel d'occasion, nous mettrons tout en ouvre
+                            pour trouver la pièce défectueuse mais
+                            aucun déplacement sur site ne sera fait. Toute réclamation quant à la qualité d'une
+                            réparation doit être faite dans un délai de trois jours suivants la réception du
+                            matériel. Concernant les autoclaves, il
+                            n'est pas prévu de système de prêt gratuit durant l'immobilisation de l'appareil.
+                        </p>
+
+                        <b style="font-size:10px">RÉSERVEDE PROPRIÉTÉ</b>
+                        <p>Nous conservons l'entière et exclusive propriété des
+                            marchandises vendues jusqu'au paiement intégralde leur prix (loi 80.335 du 12/05/1980),
+                            mais le client en assumera les risques dès leur livraison.
+                        </p>
+
+                        <b style="font-size:10px">CONTESTATION</b>
+                        <p>Sauf disposition légale contraire, toute contestation,
+                            de quelque ordre qu'elle soit, sera de la compétence exclusive du Tribunal de Commerce
+                            de Lillequi se devra d'appliquer la loi française.
+                        </p>
+                    </div>
+
+                    <p style="page-break-after:always;"/>
+                </div>
+                <div class="footer">
+                    <div class="row"
+                         style="margin-left:9px; color:#808080 !important; font-size:9.0px; text-align: justify; text-justify: inter-word;">
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="sale_report_saleorder_condition_general" inherit_id="sale.report_saleorder">
+            <xpath expr="//t[@t-call='web.html_container']" position="replace">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-call="sale.report_saleorder_document" t-lang="doc.partner_id.lang"/>
+                        <t t-call="salembier_sale.general_conditions_sale"/>
+                    </t>
+                </t>
+            </xpath>
+        </template>
+
+        <record id="paperformat_custmer_layout_label_simple_a4" model="report.paperformat">
+            <field name="name">A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+        </record>
+
+        <record id="sale.action_report_saleorder" model="ir.actions.report">
+            <field name="paperformat_id" ref="paperformat_custmer_layout_label_simple_a4"/>
+        </record>
+
+        <template id="minimal_layout" inherit_id="web.minimal_layout">
+            <xpath expr="//script[@t-if='subst']" position="replace">
+                <script t-if="subst">
+                    function subst() {
+                    var vars = {};
+                    var x = document.location.search.substring(1).split('&amp;');
+                    for (var i in x) {
+                    var z = x[i].split('=', 2);
+                    vars[z[0]] = unescape(z[1]);
+                    }
+                    var x = ['sitepage', 'sitepages', 'section', 'subsection', 'subsubsection'];
+                    var z = {'sitepage': 'page', 'sitepages': 'topage'};
+                    for (var i in x) {
+                    var y = document.getElementsByClassName(z[x[i]] || x[i])
+                    for (var j=0; j&lt;y.length; ++j)
+                    y[j].textContent = vars[x[i]];
+                    }
+
+                    var fromPage = document.getElementsByClassName('page');
+                    for(var j = 0; j&lt;fromPage.length; j++)
+                    fromPage[j].textContent = vars['sitepage'];
+                    var toPage = document.getElementsByClassName('topage');
+                    for(var j = 0; j&lt;toPage.length; j++)
+                    toPage[j].textContent = vars['sitepages'];
+
+                    var index = vars['webpage'].split('.', 4)[3];
+                    var header = document.getElementById('minimal_layout_report_headers');
+                    if(header){
+                    var companyHeader = header.children[index];
+                    header.textContent = '';
+                    header.appendChild(companyHeader);
+                    }
+                    var footer = document.getElementById('minimal_layout_report_footers');
+                    if(footer){
+                    var companyFooter = footer.children[index];
+                    footer.textContent = '';
+                    footer.appendChild(companyFooter);
+                    }
+
+                    var operations = {
+                    'last-page': function (elt) {
+                    elt.style.visibility = (vars.sitepage === vars.sitepages) ? "visible" : "hidden";
+                    },
+                    };
+                    for (var klass in operations) {
+                    var y = document.getElementsByClassName(klass);
+                    for (var j=0; j&lt;y.length; ++j)
+                    operations[klass](y[j]);
+                    }
+                    }
+                </script>
+            </xpath>
+        </template>
+
+        <template id="external_layout_standard_salembier" inherit_id="web.external_layout_boxed">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style"
+                 position="replace">
+                <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                    <div class="o_boxed_header">
+                        <div class="row mb8">
+                            <div class="col-6">
+                                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"
+                                     style="width:70% ;height:auto"/>
+                            </div>
+                            <div class="col-6 text-right mb4">
+                                <h4 class="mt0" t-field="company.report_header"/>
+                                <div name="company_address" class="float-right mb4">
+                                    <span t-if="company.company_details" t-field="company.company_details"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="replace">
+                <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+                    <div class="text-center" style="border-top: 1px solid black;">
+                        <t t-if="o">
+                            <t t-if="o._table=='sale_order'">
+                                <div t-if="report_type == 'pdf'" class="last-page">
+                                    <span>For the general conditions of sale, see attached</span>
+                                </div>
+                                <div t-if="report_type == 'pdf'" class="text-muted">
+                                    <strong>Page
+                                        <span class="page"/>
+                                    </strong>
+                                </div>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </div>
+
+        </template>
+
+        <template id="web.external_layout">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+            <t t-if="o">
+                <t t-if="o._table=='sale_order'">
+                    <t t-call="salembier_sale.external_layout_standard_salembier">
+                        <t t-out="0"/>
+                    </t>
+                </t>
+
+                <t t-else="">
+                    <t t-if="company.external_report_layout_id"
+                       t-call="{{company.external_report_layout_id.sudo().key}}">
+                        <t t-out="0"/>
+                    </t>
+                    <t t-else="else" t-call="web.external_layout_standard">
+                        <t t-out="0"/>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

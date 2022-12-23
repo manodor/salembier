@@ -1,0 +1,64 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* salembier_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-21 15:41+0000\n"
+"PO-Revision-Date: 2022-11-21 15:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: salembier_purchase
+#: model:ir.model,name:salembier_purchase.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: salembier_purchase
+#: model_terms:ir.ui.view,arch_db:salembier_purchase.report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:salembier_purchase.report_purchasequotation_document
+msgid "Produit"
+msgstr ""
+
+#. module: salembier_purchase
+#: model:ir.model,name:salembier_purchase.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Ligne de commande d'achat"
+
+#. module: salembier_purchase
+#: model:ir.model.fields,field_description:salembier_purchase.field_purchase_order_line__product_supplier_ref
+msgid "Ref Supplier"
+msgstr ""
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "RFQs"
+msgstr "Brouillon"
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_rfqs
+msgid "Requests For Quotation"
+msgstr "Brouillon"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.action_rfq_form
+#: model:ir.actions.act_window,name:purchase.purchase_action_dashboard_kanban
+#: model:ir.actions.act_window,name:purchase.purchase_action_dashboard_list
+#: model:ir.actions.act_window,name:purchase.purchase_rfq
+#: model:ir.ui.menu,name:purchase.menu_purchase_rfq
+#: model_terms:ir.ui.view,arch_db:purchase.portal_my_home_menu_purchase
+#: model_terms:ir.ui.view,arch_db:purchase.portal_my_home_purchase
+#: model_terms:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Requests for Quotation"
+msgstr "Brouillon"
+
+#. module: purchase_stock
+#: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_report_product_product_replenishment
+msgid "Requests for quotation"
+msgstr "Brouillon"
