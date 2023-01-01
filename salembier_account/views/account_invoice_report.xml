@@ -3,7 +3,7 @@
 <odoo>
     <data>
         <template id="report_invoice_document" inherit_id="account.report_invoice_document">
-            <xpath expr="//t[@t-set='address']" position="replace">
+            <!--<xpath expr="//t[@t-set='address']" position="replace">
                 <t t-set="address">
                     <strong>Adresse de Facturation:</strong>
                     <div t-field="o.partner_id"
@@ -18,7 +18,7 @@
                              t-options='{"widget": "contact", "fields": ["address","enseigne", "phone", "mobile" ,"email"], "no_marker": True, "phone_icons": True}'/>
                     </div>
                 </t>
-            </xpath>
+            </xpath>-->
             <xpath expr="//th[@name='th_description']" position="replace">
                 <th name="th_description" class="text-left"><span>Article</span></th>
             </xpath>
