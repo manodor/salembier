@@ -96,6 +96,7 @@ class SaleOrder(models.Model):
                     grouping_family_qty[line.product_id.categ_family_gruping.id] = line.product_uom_qty
                     grouping_family_product[line.product_id.categ_family_gruping.id] = line.product_id
 
+        _logger.info('group 1 %r', grouping_family_product)
         for record in grouping_family_product:
             for line in self.order_line:
                 if line.display_type not in ('line_section', 'line_note'):
@@ -112,6 +113,7 @@ class SaleOrder(models.Model):
                             uom=line.product_uom.id,
                             fiscal_position=self.env.context.get('fiscal_position')
                         )
+                        _logger.info('group 2 %r', product)
                         line.price_unit = product._get_tax_included_unit_price(
                             line.company_id or line.order_id.company_id,
                             line.order_id.currency_id,
@@ -121,6 +123,7 @@ class SaleOrder(models.Model):
                             product_price_unit=line.price_unit,
                             product_currency=line.order_id.currency_id
                         )
+                        _logger.info('group 3 %r', line.price_unit)
 
                     line.product_uom_qty = qty_save
         return res
