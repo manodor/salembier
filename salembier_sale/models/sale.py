@@ -114,6 +114,7 @@ class SaleOrder(models.Model):
                             fiscal_position=self.env.context.get('fiscal_position')
                         )
                         _logger.info('group 2 %r', product)
+                        _logger.info('group 3 %r', line.price_unit)
                         line.price_unit = product._get_tax_included_unit_price(
                             line.company_id or line.order_id.company_id,
                             line.order_id.currency_id,
@@ -123,7 +124,7 @@ class SaleOrder(models.Model):
                             product_price_unit=line.price_unit,
                             product_currency=line.order_id.currency_id
                         )
-                        _logger.info('group 3 %r', line.price_unit)
+                        _logger.info('group 4 %r', line.price_unit)
 
                     line.product_uom_qty = qty_save
         return res
