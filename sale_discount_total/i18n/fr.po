@@ -69,7 +69,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_discount_total.field_sale_report__discount
 #: model_terms:ir.ui.view,arch_db:sale_discount_total.report_invoice_customized
 msgid "Discount"
-msgstr ""
+msgstr "Remise"
 
 #. module: sale_discount_total
 #: model:ir.model.fields,field_description:sale_discount_total.field_account_move_line__discount
@@ -82,39 +82,39 @@ msgstr "Remise (%)"
 #: model:ir.model.fields,field_description:sale_discount_total.field_account_move__discount_rate
 #: model:ir.model.fields,field_description:sale_discount_total.field_account_payment__discount_rate
 msgid "Discount Amount"
-msgstr ""
+msgstr "Montant de la remise"
 
 #. module: sale_discount_total
 #: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__discount_rate
 msgid "Discount Rate"
-msgstr ""
+msgstr "Pourcentage de la remise"
 
 #. module: sale_discount_total
 #: model_terms:ir.ui.view,arch_db:sale_discount_total.discount_account_invoice_view_form
 msgid "Discount Rate :"
-msgstr ""
+msgstr "Pourcentage de la remise :"
 
 #. module: sale_discount_total
 #: model:ir.model.fields,field_description:sale_discount_total.field_account_bank_statement_line__discount_type
 #: model:ir.model.fields,field_description:sale_discount_total.field_account_move__discount_type
 #: model:ir.model.fields,field_description:sale_discount_total.field_account_payment__discount_type
 msgid "Discount Type"
-msgstr ""
+msgstr "Type de remise"
 
 #. module: sale_discount_total
 #: model_terms:ir.ui.view,arch_db:sale_discount_total.discount_account_invoice_view_form
 msgid "Discount Type :"
-msgstr ""
+msgstr "Type de remise :"
 
 #. module: sale_discount_total
 #: model:ir.model.fields,field_description:sale_discount_total.field_res_config_settings__so_double_validation_limit
 msgid "Discount limit requires approval in %"
-msgstr ""
+msgstr "La limite de remise nécessite une approbation en %."
 
 #. module: sale_discount_total
 #: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__discount_type
 msgid "Discount type"
-msgstr ""
+msgstr "Type de remise"
 
 #. module: sale_discount_total
 #: model:ir.model.fields.selection,name:sale_discount_total.selection__res_company__so_double_validation__two_step
@@ -243,7 +243,7 @@ msgstr "Montant HT"
 #. module: sale_discount_total
 #: model:ir.model.fields.selection,name:sale_discount_total.selection__sale_order__state__waiting
 msgid "Waiting Approval"
-msgstr ""
+msgstr "Attente de confirmation"
 
 #. module: sale_discount_total
 #: model:ir.model.fields,field_description:sale_discount_total.field_sale_order__discount_mode
