@@ -170,10 +170,10 @@ class SaleOrderLine(models.Model):
                         pricelist_id = new_pricelist_id
                     price_unit = False
                     if sale._check_if_edit(res, line.product_id.id):
-                        key = list(res.keys())[0]
+                        res_value = list(res.values())[0]
+                        key = list(res_value.keys())[0]
                         price_unit = res.get(
                             line.product_id.id)[key][0]
-                        print(price_unit)
                     else:
                         price_unit = pricelist_id.with_context(
                             date=line.order_id.date_order).price_get(
