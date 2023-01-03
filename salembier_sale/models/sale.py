@@ -61,8 +61,9 @@ class SaleOrder(models.Model):
     def _check_if_edit(self, res, product_id):
         if res.get(product_id):
             vals = res.get(product_id, False)
-            # get the 2nd item of the tuple
-            item_id = vals[2][1]
+            # get the first key of dictionary
+            key = list(vals.keys())[0]
+            item_id = vals[key][1]
             if item_id:
                 item = self.env['product.pricelist.item'].browse(item_id)
                 if item.grouping_family_id:
@@ -169,8 +170,9 @@ class SaleOrderLine(models.Model):
                         pricelist_id = new_pricelist_id
                     price_unit = False
                     if sale._check_if_edit(res, line.product_id.id):
+                        key = list(res.keys())[0]
                         price_unit = res.get(
-                            line.product_id.id)[2][0]
+                            line.product_id.id)[key][0]
                         print(price_unit)
                     else:
                         price_unit = pricelist_id.with_context(
