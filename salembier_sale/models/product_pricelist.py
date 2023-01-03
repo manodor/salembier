@@ -30,7 +30,7 @@ class Pricelist(models.Model):
                 AND (item.date_end IS NULL OR item.date_end>=%s)
                 AND (item.active = TRUE)
             ORDER BY
-                item.applied_on, item.min_quantity desc, categ.complete_name desc, item.id desc
+                item.grouping_family_id ,item.applied_on, item.min_quantity desc, categ.complete_name desc, item.id desc
             """,
             (prod_tmpl_ids, prod_ids, categ_ids, grp_family_ids, self.id, date, date))
         # NOTE: if you change `order by` on that query, make sure it matches
