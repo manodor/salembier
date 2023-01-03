@@ -132,14 +132,12 @@
                 <t t-else="">
                     <t t-if="doc.partner_id.soumis_tva == 'oui'">
                         <td name="td_priceunit" class="text-right">
-                            <span t-field="line.pu_ttc"/>
-                            <span t-field="doc.currency_id.symbol"/>
+                            <span t-field="line.pu_ttc"/><span t-field="doc.currency_id.symbol"/>
                         </td>
                     </t>
                     <t t-else="">
                         <td name="td_priceunit" class="text-right" style="width:90px">
-                            <span t-field="line.price_unit"/>
-                            <span t-field="doc.currency_id.symbol"/>
+                            <span t-field="line.price_unit"/><span t-field="doc.currency_id.symbol"/>
                         </td>
                     </t>
                 </t>
@@ -148,8 +146,7 @@
             <xpath expr="//td[@t-if='display_discount']" position="after">
                 <td t-if="display_discount" name="td_pricenet" class="text-right"
                     groups="product.group_discount_per_so_line">
-                    <span t-field="line.pu_net"/>
-                    <span t-field="doc.currency_id.symbol"/>
+                    <span t-field="line.pu_net"/><span t-field="doc.currency_id.symbol"/>
                 </td>
             </xpath>
 
@@ -160,8 +157,7 @@
                 <t t-else="">
                     <t t-if="doc.partner_id.soumis_tva == 'oui'">
                         <td name="td_subtotal" class="text-right">
-                            <span t-field="line.amount_ttc"/>
-                            <span t-field="doc.currency_id.symbol"/>
+                            <span t-field="line.amount_ttc"/><span t-field="doc.currency_id.symbol"/>
                         </td>
                     </t>
                     <t t-else="">
@@ -208,9 +204,9 @@
                             </td>
 
                             <td style="width:60%;border:black solid 1px !important" class="border-black">
-                                <span>Done in</span>
+                                <span>Fait à</span>
                                 <br/>
-                                <span>The</span>
+                                <span>Le</span>
                             </td>
                         </tr>
                         <tr>
