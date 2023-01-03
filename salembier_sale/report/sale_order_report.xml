@@ -204,9 +204,9 @@
                             </td>
 
                             <td style="width:60%;border:black solid 1px !important" class="border-black">
-                                <span>Done in</span>
+                                <span>Fait à</span>
                                 <br/>
-                                <span>The</span>
+                                <span>Le</span>
                             </td>
                         </tr>
                         <tr>
@@ -323,7 +323,8 @@
                                     <span t-esc="tax_totals['formatted_amount_total']"/>
                                 </t>
                                 <t t-else="">
-                                    <span t-esc="'%.2f'%(doc.amount_untaxed)"/><span t-field="doc.currency_id.symbol"/>
+                                    <span t-esc="'%.2f'%(doc.amount_untaxed)"/>
+                                    <span t-field="doc.currency_id.symbol"/>
                                 </t>
                             </td>
                         </tr>
