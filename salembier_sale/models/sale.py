@@ -88,12 +88,12 @@ class SaleOrder(models.Model):
     @api.model
     def create(self, values):
         res = super(SaleOrder, self).create(values)
-        res.compute_global_discount()
+        # res.compute_global_discount()
         return res
 
     def write(self, values):
         res = super(SaleOrder, self).write(values)
-        self.compute_global_discount()
+        # self.compute_global_discount()
         return res
 
 
