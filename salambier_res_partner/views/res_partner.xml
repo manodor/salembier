@@ -20,7 +20,7 @@
                     <field name="podo"/>
                 </xpath>
                 <xpath expr="//group[@name='misc']" position="inside">
-                    <field name="soumis_tva" invisible="1"/>
+                    <field name="soumis_tva"/>
                 </xpath>
                 <xpath expr="//group[@name='purchase']" position="inside">
                     <field name="sous_escompte" attrs="{'invisible': [('supplier_rank', '=', 0)]}"/>

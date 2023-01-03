@@ -57,6 +57,9 @@
                     </div>
                 </t>
             </xpath>
+            <xpath expr="//table[1]" position="after">
+                <span t-field="o.note"/>
+            </xpath>
         </template>
     </data>
 </odoo>
