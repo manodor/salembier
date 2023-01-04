@@ -15,10 +15,12 @@
                     <field name="sale_order_id" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_uom_id']" position="after">
-                    <field name="account_serial_number"/>
+                    <field name="account_serial_number" invisible="1"/>
+                    <field name="account_serial_number_html"/>
                 </xpath>
                 <xpath expr="//field[@name='line_ids']/tree/field[@name='product_uom_id']" position="after">
                     <field name="account_serial_number" invisible="1"/>
+                    <field name="account_serial_number_html" invisible="1"/>
                 </xpath>
             </field>
         </record>
