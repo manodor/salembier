@@ -153,7 +153,7 @@ class SaleOrderLine(models.Model):
         for line in self:
             sale = line.order_id.with_context(date=line.order_id.date_order)
             partner_id = sale.partner_id.id
-            if line.product_id:
+            if line.product_id and line.product_id.detailed_type != 'service':
                 pricelist_id = sale.pricelist_id
                 product_id = line.product_id
                 qty = sale._get_quantity_to_compute(line)
