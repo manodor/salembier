@@ -37,7 +37,7 @@
                                         <span t-field="line.name"/>
                                     </td>
                                     <td name="before">
-                                        <span t-field="line.product_id.default_code"/>
+                                        <span t-field="line.product_supplier_ref"/>
                                     </td>
                                     <td class="text-right">
                                         <span t-field="line.product_qty"/>
