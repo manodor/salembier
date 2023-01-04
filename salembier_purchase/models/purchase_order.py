@@ -12,9 +12,11 @@ class PurchaseOrderLine(models.Model):
                 filter = self.product_id.variant_seller_ids.filtered(
                     lambda r: r.name == self.order_id.partner_id)
                 self.product_supplier_ref = filter.product_code
+                self.name = filter.product_name
             else:
                 filter = self.product_id.seller_ids.filtered(
                     lambda r: r.name == self.order_id.partner_id and r.product_id == self.product_id)
-                self.product_supplier_ref = filter.product_name
+                self.product_supplier_ref = filter.product_code
+                self.name = filter.product_name
 
     product_supplier_ref = fields.Char(string='Ref Supplier')
