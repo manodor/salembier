@@ -54,8 +54,8 @@ class ProductProduct(models.Model):
                 if vendor:
                     current_vendor_price = vendor.currency_id._convert(vendor[0].price, self.env.company.currency_id,
                                                                                self.env.company, fields.Date.today())
-            transportation = (self.standard_price * rec.transportation) / 100
-            rec.real_cost = self.standard_price + rec.impact_of_additional_cost + transportation
+            transportation = (rec.standard_price * rec.transportation) / 100
+            rec.real_cost = rec.standard_price + rec.impact_of_additional_cost + transportation
 
 
     """This code is script to import variant"""

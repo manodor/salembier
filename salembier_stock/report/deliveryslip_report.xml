@@ -6,7 +6,6 @@
                 <p t-field="o.scheduled_date" t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
             </xpath>
             <xpath expr="//t[@t-set='address']" position="replace"/>
-
             <xpath expr="//t[@t-set='information_block']" position="replace">
                 <t t-set="address">
                     <div class="row">
@@ -57,7 +56,6 @@
                         </div>
                     </div>
                 </t>
-
             </xpath>
             <xpath expr="//table[1]" position="after">
                 <span t-field="o.note"/>
