@@ -6,6 +6,15 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tax_string']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='list_price']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
             <xpath expr="//field[@name='categ_id']" position="after">
                 <field name="categ_family_gruping" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
                 <field name="product_topology"/>
@@ -45,6 +54,30 @@
                 </group>
                 <group>
                 </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit tree View to Modify it -->
+    <record id="product_template_tree_view_inherit_salembier" model="ir.ui.view">
+        <field name="name">product.template.tree.view.inherit.salembier</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit kanban View to Modify it -->
+    <record id="product_template_kanban_view_inherit_salembier" model="ir.ui.view">
+        <field name="name">product.template.kanban.view.inherit.salembier</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='product_lst_price']" position="replace">
+
             </xpath>
         </field>
     </record>
