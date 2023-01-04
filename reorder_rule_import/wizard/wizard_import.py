@@ -38,7 +38,8 @@ class wizard_import(models.TransientModel):
         orderpoint_obj = self.env['stock.warehouse.orderpoint']
         prod_obj = self.env['product.product']
         search_prod = prod_obj.search([('default_code', '=', values['product_code'])], limit=1)
-        if search_prod:
+        exist_rule = orderpoint_obj.search([('product_id', '=', search_prod.id)], limit=1)
+        if search_prod and not exist_rule:
             new_rule = orderpoint_obj.create({'product_id' : search_prod.id,
                            'product_min_qty': float(values['min_rule']),
                            'product_max_qty': float(values['max_rule']),
