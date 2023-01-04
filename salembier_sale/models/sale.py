@@ -13,6 +13,8 @@ class SaleOrder(models.Model):
 
     total_due = fields.Monetary(string='Montant dû', related='partner_id.total_due', readonly=True)
     related_category_id = fields.Many2many(related='partner_id.category_id')
+    validity_date = fields.Date(default=fields.Date.today)
+
 
     def action_confirm(self):
         if self.partner_id.leads:
