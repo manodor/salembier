@@ -11,6 +11,7 @@
                     <button
                         name="compute_global_discount"
                         string="Appliquer les Remises"
+
                         type="object" states="draft,sent"
                         class="oe_highlight"/>
                 </button>
