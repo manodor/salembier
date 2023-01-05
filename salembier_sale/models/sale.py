@@ -33,7 +33,8 @@ class SaleOrder(models.Model):
     total_due = fields.Monetary(string='Montant dû', related='partner_id.total_due', readonly=True)
     related_category_id = fields.Many2many(related='partner_id.category_id')
     validity_date = fields.Date(default=fields.Date.today)
-
+    amount_discount = fields.Monetary(string='Remise HT', store=True, readonly=True, compute='_amount_all',
+                                      digits=dp.get_precision('Account'), track_visibility='always')
 
     def action_confirm(self):
         if self.partner_id.leads:
