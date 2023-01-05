@@ -233,7 +233,7 @@
                                         <strong class="mr16">Total TTC before discount</strong>
                                     </td>
                                     <td class="text-right" style="border-top: 1px solid black !important;">
-                                        <span t-esc="doc.amount_total + doc.amount_discount"
+                                        <span t-esc="doc.price_total_no_discount"
                                               t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
                                     </td>
                                 </tr>
@@ -242,7 +242,7 @@
                                         <strong class="mr16">Total discounts</strong>
                                     </td>
                                     <td class="text-right">
-                                        <span t-esc="doc.amount_discount"
+                                        <span t-esc="doc.discount_total"
                                               t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
                                     </td>
                                 </tr>
