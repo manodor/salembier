@@ -75,6 +75,9 @@
                 <xpath expr="//field[@name='partner_id']" position="attributes">
                     <attribute name="options">{'no_create': True}</attribute>
                 </xpath>
+                <xpath expr="//field[@name='tax_totals_json']" position="after">
+                    <field name="amount_discount" class="oe_subtotal_footer" />
+                </xpath>
                 <group name="sale_info" position="replace">
                     <group name="sale_info" string="Invoicing">
                       <field name="fiscal_position_id" options="{'no_create': True}"/>

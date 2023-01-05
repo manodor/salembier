@@ -169,8 +169,3 @@ class AccountInvoice(models.Model):
         self.supply_rate()
         return True
 
-
-class AccountInvoiceLine(models.Model):
-    _inherit = "account.move.line"
-
-    discount = fields.Float(string='Discount (%)', digits=(16, 20), default=0.0)

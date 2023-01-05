@@ -3,6 +3,7 @@
 from odoo import api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
+import odoo.addons.decimal_precision as dp
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -11,10 +12,29 @@ _logger = logging.getLogger(__name__)
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    @api.depends('order_line.price_total')
+    def _amount_all(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = amount_tax = amount_discount = 0.0
+            for line in order.order_line:
+                amount_untaxed += line.price_subtotal
+                amount_tax += line.price_tax
+                amount_discount += (line.product_uom_qty * line.price_unit * line.discount) / 100
+            order.update({
+                'amount_untaxed': amount_untaxed,
+                'amount_tax': amount_tax,
+                'amount_discount': amount_discount,
+                'amount_total': amount_untaxed + amount_tax,
+            })
+
     total_due = fields.Monetary(string='Montant dû', related='partner_id.total_due', readonly=True)
     related_category_id = fields.Many2many(related='partner_id.category_id')
     validity_date = fields.Date(default=fields.Date.today)
-
+    amount_discount = fields.Monetary(string='Remise HT', store=True, readonly=True, compute='_amount_all',
+                                      digits=dp.get_precision('Account'), track_visibility='always')
 
     def action_confirm(self):
         if self.partner_id.leads:
