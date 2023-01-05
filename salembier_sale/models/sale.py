@@ -156,31 +156,32 @@ class SaleOrderLine(models.Model):
             sale = line.order_id.with_context(date=line.order_id.date_order)
             partner_id = sale.partner_id.id
             if line.product_id and line.product_id.detailed_type != 'service':
-                pricelist_id = sale.pricelist_id
-                product_id = line.product_id
-                qty = sale._get_quantity_to_compute(line)
-                if qty:
-                    res = sale._get_price_of_line(
-                        product_id, qty, partner_id, pricelist_id)
-                    while True:
-                        new_pricelist_id = sale._get_child_pricelist(res)
-                        if not new_pricelist_id:
-                            break
-                        res = sale._get_price_of_line(product_id,
-                                                      qty, partner_id,
-                                                      new_pricelist_id)
-                        pricelist_id = new_pricelist_id
-                    price_unit = False
-                    if sale._check_if_edit(res, line.product_id.id):
-                        res_value = list(res.values())[0]
-                        key = list(res_value.keys())[0]
-                        price_unit = res.get(
-                            line.product_id.id)[key][0]
-                    else:
-                        price_unit = pricelist_id.with_context(
-                            date=line.order_id.date_order).price_get(
-                            product_id.id, line.product_uom_qty,
-                            partner=sale.partner_id.id)[pricelist_id.id]
-                    if price_unit is not False:
-                        line.write({'price_unit': price_unit})
+                if line.display_type not in ('line_section', 'line_note'):
+                    pricelist_id = sale.pricelist_id
+                    product_id = line.product_id
+                    qty = sale._get_quantity_to_compute(line)
+                    if qty:
+                        res = sale._get_price_of_line(
+                            product_id, qty, partner_id, pricelist_id)
+                        while True:
+                            new_pricelist_id = sale._get_child_pricelist(res)
+                            if not new_pricelist_id:
+                                break
+                            res = sale._get_price_of_line(product_id,
+                                                          qty, partner_id,
+                                                          new_pricelist_id)
+                            pricelist_id = new_pricelist_id
+                        price_unit = False
+                        if sale._check_if_edit(res, line.product_id.id):
+                            res_value = list(res.values())[0]
+                            key = list(res_value.keys())[0]
+                            price_unit = res.get(
+                                line.product_id.id)[key][0]
+                        else:
+                            price_unit = pricelist_id.with_context(
+                                date=line.order_id.date_order).price_get(
+                                product_id.id, line.product_uom_qty,
+                                partner=sale.partner_id.id)[pricelist_id.id]
+                        if price_unit is not False:
+                            line.write({'price_unit': price_unit})
         return True
