@@ -21,6 +21,22 @@ class PurchaseIntelligence(models.Model):
     number_of_coli = fields.Float("Number of Coli", compute="_get_number_of_coli", store=True)
     reorder_rule_id = fields.Many2one("stock.warehouse.orderpoint", string="Reordering rule")
 
+    def get_description_product(self, rec):
+        product_description = False
+        product_supplier_ref = False
+        if rec.product_id:
+            if len(rec.product_id.variant_seller_ids) == 1:
+                filter = rec.product_id.variant_seller_ids.filtered(
+                    lambda r: r.name == rec.vendor_id)
+                product_supplier_ref = filter.product_code
+                product_description = filter.product_name
+            else:
+                filter = rec.product_id.seller_ids.filtered(
+                    lambda r: r.name == rec.vendor_id and r.product_id == rec.product_id)
+                product_supplier_ref = filter.product_code
+                product_description = filter.product_name
+        return product_supplier_ref, product_description
+
     @api.depends('max_qty', 'forecasted_qty', 'reorder_rule_id.qty_multiple')
     def _get_purchase_qty(self):
         for rec in self:
@@ -69,9 +85,11 @@ class PurchaseIntelligence(models.Model):
                     purchase_order = self.env['purchase.order'].search([('partner_id', '=', rec.vendor_id.id),
                                                                         ('state', '=', 'draft')], limit=1,
                                                                        order="id desc")
+                    code , name = self.get_description_product(rec)
                     if purchase_order:
                         self.env['purchase.order.line'].create({
-                            'name': rec.name,
+                            'product_supplier_ref': code,
+                            'name': name,
                             'product_qty': rec.purchase_qty,
                             'product_id': rec.product_id.id,
                             'product_uom': rec.product_id.uom_po_id.id,
@@ -81,7 +99,8 @@ class PurchaseIntelligence(models.Model):
                         })
                     else:
                         line_vals = {
-                            'name': rec.name,
+                            'product_supplier_ref': code,
+                            'name': name,
                             'product_qty': rec.purchase_qty,
                             'product_id': rec.product_id.id,
                             'product_uom': rec.product_id.uom_po_id.id,
