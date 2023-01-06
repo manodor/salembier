@@ -31,6 +31,7 @@
             <!-- xpath after id row -->
             <xpath expr="//div[@id='total']" position="after">
                 <!-- table in right  -->
+                <t t-if="o.move_type not in ['in_invoice','in_receipt', 'in_refund']">
                 <div class="row" style="margin-top:50px;">
                     <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
                         <table class="table table-sm" style="page-break-inside: avoid;">
@@ -257,6 +258,7 @@
                         </p>
                     </div>
                 </div>
+                </t>
             </xpath>
             <xpath expr="//div[@name='origin']" position="before">
                 <div>
