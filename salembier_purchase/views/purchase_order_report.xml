@@ -19,7 +19,7 @@
                     <thead>
                         <tr>
                             <th name="th_description"><strong>Produit</strong></th>
-                            <th name="th_description">Ref Interne</th>
+                            <th name="th_description">Référence</th>
                             <th name="th_quantity" class="text-right"><strong>Qté</strong></th>
                             <th name="th_price_unit" class="text-right"><strong>Prix unitaire</strong></th>
                             <th name="th_amount" class="text-right"><strong>MONTANT</strong></th>
