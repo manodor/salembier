@@ -30,12 +30,14 @@ class PurchaseIntelligence(models.Model):
                     lambda r: r.name == rec.vendor_id)
                 product_supplier_ref = filter.product_code
                 product_description = filter.product_name
+                price = filter.price
             else:
                 filter = rec.product_id.seller_ids.filtered(
                     lambda r: r.name == rec.vendor_id and r.product_id == rec.product_id)
                 product_supplier_ref = filter.product_code
                 product_description = filter.product_name
-        return product_supplier_ref, product_description
+                price = filter.price
+        return product_supplier_ref, product_description, price
 
     @api.depends('max_qty', 'forecasted_qty', 'reorder_rule_id.qty_multiple')
     def _get_purchase_qty(self):
@@ -85,7 +87,7 @@ class PurchaseIntelligence(models.Model):
                     purchase_order = self.env['purchase.order'].search([('partner_id', '=', rec.vendor_id.id),
                                                                         ('state', '=', 'draft')], limit=1,
                                                                        order="id desc")
-                    code , name = self.get_description_product(rec)
+                    code , name, price = self.get_description_product(rec)
                     if purchase_order:
                         self.env['purchase.order.line'].create({
                             'product_supplier_ref': code,
@@ -93,7 +95,7 @@ class PurchaseIntelligence(models.Model):
                             'product_qty': rec.purchase_qty,
                             'product_id': rec.product_id.id,
                             'product_uom': rec.product_id.uom_po_id.id,
-                            'price_unit': rec.product_id.standard_price,
+                            'price_unit': price,
                             'date_planned': fields.Date.today(),
                             'order_id': purchase_order.id,
                         })
@@ -104,7 +106,7 @@ class PurchaseIntelligence(models.Model):
                             'product_qty': rec.purchase_qty,
                             'product_id': rec.product_id.id,
                             'product_uom': rec.product_id.uom_po_id.id,
-                            'price_unit': rec.product_id.standard_price,
+                            'price_unit': price,
                             'date_planned': fields.Date.today(),
                         }
                         purchase = self.env['purchase.order'].create({
