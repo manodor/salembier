@@ -111,14 +111,15 @@ class PurchaseIntelligence(models.Model):
                         }
                         purchase = self.env['purchase.order'].create({
                             'partner_id': rec.vendor_id.id,
-                            'user_id': False,
+                            'user_id': self.env.user.id,
                             'origin': 'Achat Intelligent',
                             'company_id': self.env.company.id,
                             'currency_id': self.env.company.currency_id.id,
                             'payment_term_id': rec.vendor_id.with_company(
                                 self.env.company).property_supplier_payment_term_id.id,
                             'date_order': fields.Date.today(),
-                            'order_line': [(0, 0, line_vals)]
+                            'order_line': [(0, 0, line_vals)],
+
                         })
         else:
             return {
