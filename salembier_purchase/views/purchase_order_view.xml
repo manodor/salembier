@@ -7,6 +7,13 @@
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
+                <xpath expr="header" position="inside">
+                    <button name="update_product_price"
+                            string="Update Price"
+                            type="object"
+                            class="oe_highlight"
+                            states="sent,to approve,purchase,done"/>
+                </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[@name='name']"
                        position="after">
                     <field name="product_supplier_ref"/>

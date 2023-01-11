@@ -25,7 +25,6 @@
         'views/product_template_view.xml',
         'views/product_product_view.xml',
         'views/stock_move_line_view.xml',
-        'views/purchase_order_view.xml',
         'views/product_grouping_family_view.xml',
         'views/product_category_view.xml',
         'views/product_pricelist_view.xml',
