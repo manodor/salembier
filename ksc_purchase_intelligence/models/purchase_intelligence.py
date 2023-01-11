@@ -28,15 +28,25 @@ class PurchaseIntelligence(models.Model):
             if len(rec.product_id.variant_seller_ids) == 1:
                 filter = rec.product_id.variant_seller_ids.filtered(
                     lambda r: r.name == rec.vendor_id)
-                product_supplier_ref = filter.product_code
-                product_description = filter.product_name
-                price = filter.price
+                if filter:
+                    product_supplier_ref = filter.product_code
+                    product_description = filter.product_name
+                    price = filter.price
+                else:
+                    product_supplier_ref = rec.product_id.default_code
+                    product_description = rec.product_id.display_name
+                    price = rec.product_id.standard_price
             else:
                 filter = rec.product_id.seller_ids.filtered(
                     lambda r: r.name == rec.vendor_id and r.product_id == rec.product_id)
-                product_supplier_ref = filter.product_code
-                product_description = filter.product_name
-                price = filter.price
+                if filter:
+                    product_supplier_ref = filter.product_code
+                    product_description = filter.product_name
+                    price = filter.price
+                else:
+                    product_supplier_ref = rec.product_id.default_code
+                    product_description = rec.product_id.display_name
+                    price = rec.product_id.standard_price
         return product_supplier_ref, product_description, price
 
     @api.depends('max_qty', 'forecasted_qty', 'reorder_rule_id.qty_multiple')
@@ -114,7 +124,7 @@ class PurchaseIntelligence(models.Model):
                             'user_id': self.env.user.id,
                             'origin': 'Achat Intelligent',
                             'company_id': self.env.company.id,
-                            'currency_id': self.env.company.currency_id.id,
+                            'currency_id': rec.vendor_id.property_purchase_currency_id.id,
                             'payment_term_id': rec.vendor_id.with_company(
                                 self.env.company).property_supplier_payment_term_id.id,
                             'date_order': fields.Date.today(),
