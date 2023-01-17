@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from odoo.exceptions import UserError, ValidationError
 
 
 class AccountAccount(models.Model):
@@ -17,7 +18,10 @@ class AccountAccount(models.Model):
     def delete_double_account(self):
         account = self.env['account.account'].search([])
         for rec in account:
-            # find if the account is already used in account.move.line
             move_line = self.env['account.move.line'].search([('account_id', '=', rec.id)])
             if len(rec.code) == 6 and rec.group_id and rec.group_id.id not in [87,82] and not move_line:
-                rec.unlink()
+                pass
+                try:
+                    rec.unlink()
+                except UserError:
+                    pass
