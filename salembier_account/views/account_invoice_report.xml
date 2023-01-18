@@ -3,22 +3,6 @@
 <odoo>
     <data>
         <template id="report_invoice_document" inherit_id="account.report_invoice_document">
-            <!--<xpath expr="//t[@t-set='address']" position="replace">
-                <t t-set="address">
-                    <strong>Adresse de Facturation:</strong>
-                    <div t-field="o.partner_id"
-                         t-options='{"widget": "contact", "fields": [ "name", "enseigne", "address","phone", "mobile" ,"email"], "no_marker": True, "phone_icons": True}'/>
-                    <p t-if="o.partner_id.vat"><t t-esc="o.company_id.account_fiscal_country_id.vat_label or 'Tax ID'"/>
-                        : <span t-field="o.partner_id.vat"/></p>
-                </t>
-                <t t-set="information_block">
-                    <div groups="sale.group_delivery_invoice_address" name="shipping_address_block">
-                        <strong>Adresse de Livraison:</strong>
-                        <div t-field="o.partner_shipping_id"
-                             t-options='{"widget": "contact", "fields": ["address","enseigne", "phone", "mobile" ,"email"], "no_marker": True, "phone_icons": True}'/>
-                    </div>
-                </t>
-            </xpath>-->
             <xpath expr="//th[@name='th_description']" position="replace">
                 <th name="th_description" class="text-left"><span>Article</span></th>
             </xpath>
@@ -28,6 +12,19 @@
                     <span t-field="line.product_id"/>
                 </td>
             </xpath>
+            <!-- add fields account_serial_number_html in invoice_line_ids after quantity -->
+<!--            <xpath expr="//t[@t-set='display_discount']" position="after">-->
+<!--                <t t-set="display_serial" t-value="any(l.account_serial_number_html for l in o.invoice_line_ids)"/>-->
+<!--            </xpath>-->
+            <xpath expr="//th[@name='th_description']" position="after">
+                <th name="th_serial_number"  class="text-right"><span>N° de serie</span></th>
+            </xpath>
+            <xpath expr="//td[@name='account_invoice_line_name']" position="after">
+                <td name="account_serial_number_html">
+                    <span t-field="line.account_serial_number_html"/>
+                </td>
+            </xpath>
+
             <!-- xpath after id row -->
             <xpath expr="//div[@id='total']" position="after">
                 <!-- table in right  -->
