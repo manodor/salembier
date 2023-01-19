@@ -1,4 +1,5 @@
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
+from odoo.exceptions import UserError, ValidationError
 
 
 class PurchaseIntelligence(models.Model):
@@ -119,6 +120,8 @@ class PurchaseIntelligence(models.Model):
                             'price_unit': price,
                             'date_planned': fields.Date.today(),
                         }
+                        if not rec.vendor_id.property_purchase_currency_id.id:
+                            raise UserError(_("Please set the currency for the vendor %s") % rec.vendor_id.name)
                         purchase = self.env['purchase.order'].create({
                             'partner_id': rec.vendor_id.id,
                             'user_id': self.env.user.id,
