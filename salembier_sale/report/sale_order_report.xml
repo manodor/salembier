@@ -649,25 +649,6 @@
                 </div>
             </div>
 
-            <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="replace">
-                <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
-                    <div class="text-center" style="border-top: 1px solid black;">
-                        <t t-if="o">
-                            <t t-if="o._table=='sale_order'">
-                                <div t-if="report_type == 'pdf'" class="last-page">
-                                    <span>For the general conditions of sale, see attached</span>
-                                </div>
-                                <div t-if="report_type == 'pdf'" class="text-muted">
-                                    <strong>Page
-                                        <span class="page"/>
-                                    </strong>
-                                </div>
-                            </t>
-                        </t>
-                    </div>
-                </div>
-            </div>
-
         </template>
 
         <template id="web.external_layout">
